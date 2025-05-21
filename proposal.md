@@ -12,14 +12,15 @@
 
 ## Project Overview
 
- Campus Guide is a web and mobile-based mapping solution that enhances campus navigation by ensuring universities and colleges have accurate, up-to-date OpenStreetMap (OSM) data. The web platform is built using React and React Map GL, while the mobile application is developed using React Native. The mobile app integrates OSM point geocoding via Photon (photon.komoot.io) and uses the Mapbox Directions API for routing between campus locations. Users can search for buildings, facilities, or landmarks and receive turn-by-turn walking directions
+ Campus Guide is a web and mobile-based mapping solution that enhances campus navigation by ensuring universities and colleges have accurate, up-to-date OpenStreetMap (OSM) data. The web platform is built using React and React Map GL, while the mobile application is developed using React Native. The mobile app integrates OSM point geocoding via [Photon](photon.komoot.io) and uses the Mapbox Directions API for routing between campus locations. Users can search for buildings, facilities, or landmarks and receive turn-by-turn walking directions.
 
 ## Source Code
 
 * [Github Web Application](https://github.com/vickystickz/Campus-Guide)
 * [Github Mobile Application](https://github.com/vickystickz/CampusGuide-mobile)
 
- Web App - [CampusGuide](https://campusguide.tech/map)
+ [CampusGuide Web Application](https://campusguide.tech/map)
+ [CampusGuide- Figma](https://www.figma.com/design/9mLCB7VeaC2DH0OovUXqe2/Campus-Guide-App?node-id=14-15&t=5j1uEEdmXL9CMOp4-1)
 
 ## About you
 
