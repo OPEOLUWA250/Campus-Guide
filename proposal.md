@@ -16,10 +16,10 @@
 
 * [CampusGuide Web ](https://campusguide.tech/map)
 
-## Source Code/ Resources
-* [Github Web Application](https://github.com/vickystickz/Campus-Guide)
-* [Github Mobile Application](https://github.com/vickystickz/CampusGuide-mobile)
-* [CampusGuide- Figma](https://www.figma.com/design/9mLCB7VeaC2DH0OovUXqe2/Campus-Guide-App?node-id=14-15&t=5j1uEEdmXL9CMOp4-1)
+   #### Source Code/ Resources
+   * [Github Web Application](https://github.com/vickystickz/Campus-Guide)
+   * [Github Mobile Application](https://github.com/vickystickz/CampusGuide-mobile)
+   * [CampusGuide- Figma](https://www.figma.com/design/9mLCB7VeaC2DH0OovUXqe2/Campus-Guide-App?node-id=14-15&t=5j1uEEdmXL9CMOp4-1)
 
 ## About you
 
