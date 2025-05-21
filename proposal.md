@@ -1,37 +1,36 @@
- # Microgrant Proposal:  Campus Guide
- 
- ## Group Details
+# Microgrant Proposal:  Campus Guide
+
+## Group Details
+
 * **Group:** MVF Solutions
 * **Location:** Abuja, Nigeria
-* **Contact Details:** mvfsolutions1@gmail.com
- 
- ## Project Title
+* **Contact Details:** <mvfsolutions1@gmail.com>
 
-    ### Campus Guide: Enhancing Campus Navigation through accurate and updated OSM Maps
+## Project Title
 
- ## Project Overview
+ ### Campus Guide: Enhancing Campus Navigation through accurate and updated OSM Maps
+
+## Project Overview
+
  Campus Guide is a web-based mapping solution that enhances campus navigation by ensuring universities and colleges have accurate, up-to-date OpenStreetMap (OSM) data. Built using React and React Map GL, the tool allows administrators and students to easily map campus features like lecture halls, hostels, cafeterias, and pathways. It will include an intuitive interface for data contribution, verification, and feedback—ensuring community involvement and OSM data quality. The project will also create mapping workflows and guides tailored for campus mapping initiatives.
 
- ## Source Code
- * [Github Web Application](https://github.com/vickystickz/Campus-Guide)
- * [Github Mobile Application](https://github.com/vickystickz/CampusGuide-mobile)
+## Source Code
+
+* [Github Web Application](https://github.com/vickystickz/Campus-Guide)
+* [Github Mobile Application](https://github.com/vickystickz/CampusGuide-mobile)
 
  Web App - [CampusGuide](https://campusguide.tech/map)
- 
- ## About you
+
+## About you
 
 MVF Solutions is a Nigeria-based geospatial technology group led by [Victor Ayomide Ademoyero](https://github.com/vickystickz), a Remote Sensing and GIS graduate, former YouthMappers Regional Ambassador, and OSM contributor. The team previously participated in humanitarian mapping campaigns and OSMF-supported events such as State of the Map 2024. We have not been previously awarded an OSMF microgrant.
 
- 
 ## Objectives and Impact
 
 The project addresses the lack of detailed and navigable maps for African campuses, a gap that hinders accessibility and orientation. By targeting OSM updates, Campus Guide supports the OSM mission of creating open and freely available geospatial data. Regionally, it empowers African students and institutions; globally, it enriches the OSM database with verified POIs. It is innovative by combining real-time community input with mapping tools and local validation. Long-term, the platform can scale to hundreds of institutions, forming a digital infrastructure for educational spaces in underserved regions.
 
-
-
-
- 
 ## Grant Amount Requested (In EUR)
+
 Total: €4,200
 
 * Developer Time (3 months): €2,400
@@ -46,9 +45,8 @@ Total: €4,200
 
 This project is partly pro bono—MVF Solutions will contribute volunteer time and existing resources. Funding is essential to cover community workshops, development time, and ensure quality validation through field visits.
 
+## Implementation Plan
 
- 
- ## Implementation Plan
  **Timeline:** 3 Months
 
 * Month 1: Platform development (MVP), community mapping guide creation
@@ -56,12 +54,12 @@ This project is partly pro bono—MVF Solutions will contribute volunteer time a
 * Month 2: Mapping workshops and data collection at selected campuses
 
 * Month 3: OSM data validation, feedback loop setup, and platform launch
- 
-**Community engagement:** 
 
-We’ll collaborate with local YouthMappers chapters, share updates via blogs and OSM mailing lists, and host online demos. 
+**Community engagement:**
 
-**SLA and maintenance and sustainability:** 
+We’ll collaborate with local YouthMappers chapters, share updates via blogs and OSM mailing lists, and host online demos.
+
+**SLA and maintenance and sustainability:**
 
 Campus Guide will remain open-source, with documentation and GitHub access. Maintenance will be managed by MVF Solutions for one year post-launch, with future contributions from the community.
 
@@ -75,7 +73,6 @@ Campus Guide will remain open-source, with documentation and GitHub access. Main
 
 * At least 80% user satisfaction in pilot testing
 
-
 ## Risks
 
 * Low participation – mitigated by early partnerships with campus groups
@@ -84,15 +81,11 @@ Campus Guide will remain open-source, with documentation and GitHub access. Main
 
 * Technical bugs – managed through agile development and QA testing
 
-
-
- ## Conflict of Interest:
+## Conflict of Interest
 
 No known conflicts of interest with the OSM Foundation. MVF Solutions has not received prior OSMF funding and maintains independent affiliations.
 
- 
- ## Recommendations: from Community and possibly from Working Groups
-
+## Recommendations: from Community and possibly from Working Groups
 
 [Link to SOTM 2024 lightning talk on Campus Guide V1](https://docs.google.com/presentation/d/1xTgPF07va4Zen84q9U9PbF8HYnW5lQyBxhQO2oExRes/edit?usp=sharing)
 
