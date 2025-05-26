@@ -27,7 +27,7 @@ MVF Solutions is a Nigeria-based geospatial technology group led by [Victor Ayom
 
 ## Objectives and Impact
 
-The project addresses the lack of detailed and navigable maps for African campuses, a gap that hinders accessibility and orientation. By targeting OSM updates, Campus Guide supports the OSM mission of creating open and freely available geospatial data. Regionally, it empowers African students and institutions; globally, it enriches the OSM database with verified POIs. It is innovative by combining real-time community input with mapping tools and local validation. Long-term, the platform can scale to hundreds of institutions, forming a digital infrastructure for educational spaces in underserved regions. Ultimately, the goal is to create a unified platform for institutional locations worldwide, making campus navigation easier and more reliable for everyone.
+The project addresses the lack of detailed and navigable maps for African campuses, a gap that hinders accessibility and orientation. By targeting OSM updates, Campus Guide supports the OSM mission of creating open and freely available geospatial data. Regionally, it empowers African students and institutions; globally, it enriches the OSM database with verified POIs. It is innovative by combining real-time community input with mapping tools and local validation. Long-term, the platform can scale to hundreds of institutions, forming a digital infrastructure for educational spaces in underserved regions. Ultimately, the goal is to create a unified platform for institutional locations worldwide, making campus navigation easier and more reliable for everyone. Mapping one Campus at a time!
 
 ## Grant Amount Requested (In EUR)
 
