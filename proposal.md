@@ -43,7 +43,7 @@ Total: €4,200
 
 * Travel for Data Validation (3 campuses): €500
 
-This project is partly pro bono—MVF Solutions will contribute volunteer time and existing resources. Funding is essential to cover community workshops, development time, and ensure quality validation through field visits.
+This project is partly pro bono—MVF Solutions will contribute volunteer time and existing resources. Funding is essential to cover community workshops, development time, and ensure quality validation through field visits and sustain deployment infrastruture.
 
 ## Implementation Plan
 
