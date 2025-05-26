@@ -88,5 +88,3 @@ No known conflicts of interest with the OSM Foundation. MVF Solutions has not re
 ## Recommendations: from Community and possibly from Working Groups
 
 [Link to SOTM 2024 lightning talk on Campus Guide V1](https://docs.google.com/presentation/d/1xTgPF07va4Zen84q9U9PbF8HYnW5lQyBxhQO2oExRes/edit?usp=sharing)
-
-[Endorsements from YouthMappers leaders and OSM Africa contributors—TBD](https://docs.google.com/presentation/d/1xTgPF07va4Zen84q9U9PbF8HYnW5lQyBxhQO2oExRes/edit?usp=sharing)
