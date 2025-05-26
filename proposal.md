@@ -47,7 +47,7 @@ This project is partly pro bono—MVF Solutions will contribute volunteer time a
 
 ## Implementation Plan
 
- **Timeline:** 4 Months
+ **Timeline:** 3 Months
 
 * Month 1: Platform Enhancement development (MVP), community mapping guide creation
 
