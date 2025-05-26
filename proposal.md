@@ -23,23 +23,23 @@
 
 ## About you
 
-MVF Solutions is a Nigeria-based geospatial technology group led by [Victor Ayomide Ademoyero](https://github.com/vickystickz), a Remote Sensing and GIS graduate, former YouthMappers Regional Ambassador, and OSM contributor. The team previously participated in humanitarian mapping campaigns and OSMF-supported events such as State of the Map 2024. We have not been previously awarded an OSMF microgrant.
+MVF Solutions is a Nigeria-based geospatial technology group led by [Victor Ayomide Ademoyero](https://github.com/vickystickz), a Remote Sensing and GIS graduate, former YouthMappers Regional Ambassador, and OSM contributor. The team has previously participated in humanitarian mapping campaigns and OSMF-supported events such as State of the Map 2024. We have not previously been awarded an OSMF microgrant.
 
 ## Objectives and Impact
 
-The project addresses the lack of detailed and navigable maps for African campuses, a gap that hinders accessibility and orientation. By targeting OSM updates, Campus Guide supports the OSM mission of creating open and freely available geospatial data. Regionally, it empowers African students and institutions; globally, it enriches the OSM database with verified POIs. It is innovative by combining real-time community input with mapping tools and local validation. Long-term, the platform can scale to hundreds of institutions, forming a digital infrastructure for educational spaces in underserved regions.
+The project addresses the lack of detailed and navigable maps for African campuses, a gap that hinders accessibility and orientation. By targeting OSM updates, Campus Guide supports the OSM mission of creating open and freely available geospatial data. Regionally, it empowers African students and institutions; globally, it enriches the OSM database with verified POIs. It is innovative by combining real-time community input with mapping tools and local validation. Long-term, the platform can scale to hundreds of institutions, forming a digital infrastructure for educational spaces in underserved regions. Ultimately, the goal is to create a unified platform for institutional locations worldwide, making campus navigation easier and more reliable for everyone.
 
 ## Grant Amount Requested (In EUR)
 
-Total: €5,200
+Total: €5,650
 
-* Developer Time (3 months): €2,400
+* Developer Time (3 months): €3,000
 
-* Community Mapping Workshops (3): €900
+* Community Mapping Workshops (3): €500
 
-* Internet and Hosting: €200
+* Internet and Hosting: €400
 
-* Outreach and Design Materials: €200
+* Outreach and Design Materials: €250
 
 * Travel for Data Validation (3 campuses): €1500
 
