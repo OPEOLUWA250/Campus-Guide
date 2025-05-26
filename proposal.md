@@ -47,11 +47,11 @@ This project is partly pro bono—MVF Solutions will contribute volunteer time a
 
 ## Implementation Plan
 
- **Timeline:** 3 Months
+ **Timeline:** 4 Months
 
-* Month 1: Platform development (MVP), community mapping guide creation
+* Month 1: Platform Enhancement development (MVP), community mapping guide creation
 
-* Month 2: Mapping workshops and data collection at selected campuses
+* Month 2: Mapping workshops and data collection at selected campuses(Online and On-site)
 
 * Month 3: OSM data validation, feedback loop setup, and platform launch
 
