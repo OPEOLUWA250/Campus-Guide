@@ -31,7 +31,7 @@ The project addresses the lack of detailed and navigable maps for African campus
 
 ## Grant Amount Requested (In EUR)
 
-Total: €4,200
+Total: €5,200
 
 * Developer Time (3 months): €2,400
 
@@ -41,7 +41,7 @@ Total: €4,200
 
 * Outreach and Design Materials: €200
 
-* Travel for Data Validation (3 campuses): €500
+* Travel for Data Validation (3 campuses): €1500
 
 This project is partly pro bono—MVF Solutions will contribute volunteer time and existing resources. Funding is essential to cover community workshops, development time, and ensure quality validation through field visits and sustain deployment infrastruture.
 
