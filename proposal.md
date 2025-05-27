@@ -41,7 +41,7 @@ Total: €5,650
 
 * Outreach and Design Materials: €250
 
-* Travel for Data Validation (3 campuses): €1500
+* Travel for Data Validation to selected campuses: €1500
 
 This project is partly pro bono—MVF Solutions will contribute volunteer time and existing resources. Funding is essential to cover community workshops, development time, and ensure quality validation through field visits and sustain deployment infrastruture.
 
