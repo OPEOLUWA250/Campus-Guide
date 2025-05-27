@@ -57,7 +57,9 @@ This project is partly pro bono—MVF Solutions will contribute volunteer time a
 
 **Community engagement:**
 
-We’ll collaborate with local YouthMappers chapters, share updates via blogs and OSM mailing lists, and host online demos.
+The core of this project is active community involvement, particularly through local YouthMappers chapters. The project workflow begins with each chapter uploading their campus boundary shapefile. This data is then reviewed to assess whether the campus has been comprehensively mapped. If gaps are identified, we organize a mapathon for the university, mobilizing volunteers to update campus information on OpenStreetMap. Once mapping is complete, the updated campus data is published on our web application.
+
+To foster ongoing collaboration, we will partner closely with local YouthMappers chapters, share progress and updates through blogs and OSM mailing lists, and host online demonstrations to showcase the platform’s features and impact.
 
 **SLA and maintenance and sustainability:**
 
