@@ -14,7 +14,7 @@ const Tabs = () => {
   const showCampusSearchIcon = activeTab === "campus";
   return (
     <div className="flex items-center relative justify-between py-3 px-5 gap-2 border-t-[1px] md:border-b-[1px] border-blue-50"> 
-      <div className="flex items-center gap-3 font-work-sans transition-all delay-150 ease-in-out">
+      <div className="flex items-center gap-3 transition-all delay-150 ease-in-out">
         {TABS.map((tab) => (
           <Button
             key={tab.id}

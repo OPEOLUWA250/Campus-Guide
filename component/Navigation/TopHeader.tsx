@@ -51,7 +51,7 @@ const TopHeader = () => {
       lat: endMarker?.latitude || 0,
       lon: endMarker?.longitude || 0,
     },
-    routeProfile
+    routeProfile,
   );
 
   useEffect(() => {
@@ -147,7 +147,7 @@ const TopHeader = () => {
                   },
                   (error) => {
                     console.log(error);
-                  }
+                  },
                 );
               }}
             >
@@ -183,7 +183,7 @@ const TopHeader = () => {
             ) : null}
           </div>
         )}
-        {routeInfoAvailable && (  
+        {routeInfoAvailable && (
           <ul className="md:h-full h-[15rem]  overflow-auto space-y-4 font-sora px-8 py-2 mt-1 mb-4 ">
             {routeInfo &&
               routeInfo?.length > 0 &&
@@ -206,20 +206,20 @@ const TopHeader = () => {
           </ul>
         )}
 
-         {routeInfoAvailable && (
-        <div className="w-full shadow-modal md:py-2 py-2 flex items-center justify-center">
-          <Button
-            className="bg-purple-200 md:px-6 md:py-[1rem] gap-2.5 w-fit font-medium md:text-s-sm text-p-xs text-white"
-            icon={<StartNavigationIcon className="text-white" />}
-            iconPosition="left"
-            onClick={() => {}}
-          >
-            <span>Start</span>
-          </Button>
-        </div>
-      )}
+        {routeInfoAvailable && (
+          <div className="w-full shadow-modal md:py-2 py-2 flex items-center justify-center">
+            <Button
+              className="bg-purple-200 md:px-6 md:py-[1rem] gap-2.5 w-fit font-light md:text-s-sm text-p-xs text-white"
+              icon={<StartNavigationIcon className="text-white" />}
+              iconPosition="left"
+              onClick={() => {}}
+            >
+              <span>Start</span>
+            </Button>
+          </div>
+        )}
 
-      {/* <Button
+        {/* <Button
       href="/"
       className="bg-purple-300 font-medium w-fit h-fit md:text-p-base text-p-xs text-white"
       icon={<RouteIcon />}

@@ -68,7 +68,7 @@ const ShareModal = ({
       transition
       className="modal-overlay"
     >
-      <DialogPanel className="font-work-sans bg-white rounded-xl md:w-[29.75rem] w-[20rem]">
+      <DialogPanel className="bg-white rounded-xl md:w-[29.75rem] w-[20rem]">
         <div className="p-6 md:space-y-8 space-y-3">
           <DialogTitle className="font-sora text-base text-blue-300 flex justify-between">
             Share Route
@@ -156,7 +156,7 @@ const FeedbackModal = ({
       transition
       className="modal-overlay "
     >
-      <DialogPanel className="font-work-sans bg-white rounded-xl md:w-[29.75rem] w-[24rem] p-6">
+      <DialogPanel className="bg-white rounded-xl md:w-[29.75rem] w-[24rem] p-6">
         <DialogTitle className="font-sora text-base text-blue-300 flex justify-between">
           Got a minute
           <CloseToast

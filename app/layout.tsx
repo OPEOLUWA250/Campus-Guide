@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${work_sans.variable} ${sora.variable}`}>
         <Providers>
           <Suspense>
-            <div className="h-screen min-w-screen">{children} </div>
+            <div className="w-screen">{children}</div>
           </Suspense>
         </Providers>
       </body>

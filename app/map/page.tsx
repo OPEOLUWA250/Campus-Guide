@@ -50,7 +50,7 @@ const WebMap = () => {
   }, [MAP_CONFIG, endMarker, routeInfo, searchParams, setBaseMap, setEndMarker, setStartMarker, startMarker]);
 
   return (
-    <div className="h-screen w-full font-work-sans">
+    <div className="h-screen w-full">
       {showMap ? (
         <div className="h-full w-full flex md:flex-row flex-col relative">
           <SideBar />

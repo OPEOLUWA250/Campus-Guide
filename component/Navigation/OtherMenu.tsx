@@ -31,7 +31,7 @@ const OtherMenu = () => {
             <div className="flex flex-col gap-2 justify-center items-center mt-4">
                 <div className="flex items-center gap-2">
                     <LogoVector />
-                    <span className="text-p-xs text-blue-200 font-work-sans">
+                    <span className="text-p-xs text-blue-200">
                         Designed with lots of <span className="text-red-500">❤</span>
                     </span>
                 </div>

@@ -16,7 +16,7 @@ const RouteTab = () => {
             routeProfile === tab.id
               ? "bg-purple-200 text-white"
               : "bg-blue-50 text-blue-200"
-          } hover:gap-2.5 flex items-center justify-center  transition-all px-3.5 gap-2.5 font-sora p-3 rounded-full font-medium md:text-s-sm text-p-xs`}
+          } hover:gap-2.5 flex items-center justify-center  transition-all px-3.5 gap-2.5 font-sora p-3 rounded-full font-light md:text-s-sm text-p-xs`}
           onClick={() => setRouteProfile(tab.id)}
         >
           <tab.icon className="h-6 w-6" />
@@ -36,7 +36,7 @@ export const RouteProfileActiveIcon = ({
   const { ROUTE_CONFIG } = APP_CONFIG;
 
   const activeRouteProfile = ROUTE_CONFIG.ROUTE_TABS.find(
-    (tab) => tab.id === routeProfile
+    (tab) => tab.id === routeProfile,
   );
 
   return (
@@ -44,7 +44,9 @@ export const RouteProfileActiveIcon = ({
       className="p-3 bg-purple-200 text-white rounded-full w-fit"
       key={activeRouteProfile?.id}
     >
-      {activeRouteProfile && <activeRouteProfile.icon className="md:h-6 md:w-6 h-4 w-4" />}
+      {activeRouteProfile && (
+        <activeRouteProfile.icon className="md:h-6 md:w-6 h-4 w-4" />
+      )}
     </div>
   );
 };

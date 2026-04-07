@@ -117,13 +117,13 @@ const StepCard = ({
             {getIcon(maneuver.type, maneuver.modifier, driving_side)}
           </div>
           <div className="">
-            <h3 className="text-p2 font-bold font-work-sans text-cg-blue-500 mb-1">
+            <h3 className="text-p2 font-bold text-cg-blue-500 mb-1">
               {name}
             </h3>
             <p className="text-xs text-cg-blue-400 w-full">
               {maneuver.instruction}
             </p>
-            <p className="text-xs text-blue-400 font-work-sans font-semibold w-full">
+            <p className="text-xs text-blue-400 font-semibold w-full">
               {Arrived ? "Arrived" : `in ${getFormattedDistance(distance)}`}
             </p>
           </div>
@@ -133,7 +133,7 @@ const StepCard = ({
       {!Arrived && (
         <div className="py-2 flex gap-1 px-4">
           <Timer className="h-4 w-4 text-blue-100" />
-          <p className="text-xs text-blue-100 font-work-sans mt-[0.04rem] w-full">
+          <p className="text-xs text-blue-100 mt-[0.04rem] w-full">
             {getFormattedEstimatedTime(duration)}
           </p>
         </div>
