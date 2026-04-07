@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback } from "react";
+import { useDropzone } from "react-dropzone";
 
 interface CampusBoundaryUploadProps {
   value: File | null;
@@ -11,33 +12,27 @@ export const CampusBoundaryUpload: React.FC<CampusBoundaryUploadProps> = ({
   value,
   onChange,
 }) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
+  const ACCEPTED_FORMATS = {
+    "application/json": [".geojson", ".json"],
+    "application/vnd.google-earth.kml+xml": [".kml"],
   };
 
-  const handleDragLeave = () => {
-    setIsDragging(false);
-  };
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      if (acceptedFiles.length > 0) {
+        onChange(acceptedFiles[0]);
+      }
+    },
+    [onChange],
+  );
 
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      onChange(files[0]);
-    }
-  };
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      onChange(files[0]);
-    }
-  };
+  const { getRootProps, getInputProps, isDragActive, isDragReject } =
+    useDropzone({
+      onDrop,
+      accept: ACCEPTED_FORMATS,
+      maxFiles: 1,
+      multiple: false,
+    });
 
   return (
     <div className="space-y-0.5 sm:space-y-0.5">
@@ -47,15 +42,16 @@ export const CampusBoundaryUpload: React.FC<CampusBoundaryUploadProps> = ({
 
       {/* Drop Zone */}
       <div
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
+        {...getRootProps()}
         className={`w-full p-4 sm:p-3 rounded-lg border-0 transition-all duration-300 flex flex-col items-center justify-center gap-3 cursor-pointer ${
-          isDragging ? "bg-purple-50" : "bg-white"
+          isDragActive || isDragReject ? "bg-purple-50" : "bg-white"
         }`}
       >
         {/* Icon */}
-        <div className="p-3 rounded-lg" style={{ backgroundColor: "#F3E6FE" }}>
+        <div
+          className="p-3 rounded-full"
+          style={{ backgroundColor: "#F3E6FE" }}
+        >
           <svg
             width="32"
             height="32"
@@ -82,7 +78,6 @@ export const CampusBoundaryUpload: React.FC<CampusBoundaryUploadProps> = ({
         {/* Upload Button */}
         <button
           type="button"
-          onClick={() => fileInputRef.current?.click()}
           className="px-5 sm:px-4 py-2 sm:py-1.5 rounded-full text-sm sm:text-xs font-medium transition-all duration-300"
           style={{
             backgroundColor: "transparent",
@@ -95,13 +90,7 @@ export const CampusBoundaryUpload: React.FC<CampusBoundaryUploadProps> = ({
         </button>
 
         {/* Hidden File Input */}
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept=".geojson,.kml,.json"
-          onChange={handleFileSelect}
-          className="hidden"
-        />
+        <input {...getInputProps()} />
 
         {/* Selected File Display */}
         {value && (

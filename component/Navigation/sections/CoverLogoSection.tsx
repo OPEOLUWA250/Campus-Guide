@@ -7,18 +7,18 @@ interface CoverLogoSectionProps {}
 
 export const CoverLogoSection: React.FC<CoverLogoSectionProps> = () => {
   return (
-    <section className="w-full bg-white py-12 sm:py-16">
-      <div className="flex items-center h-full">
+    <section className="w-full bg-white pt-12 sm:pt-16 pb-0 overflow-hidden">
+      <div className="flex items-center h-full w-full">
         {/* Container with max-width for the logo */}
-        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-6 sm:gap-8">
-          {/* Logo SVG - 30% width */}
-          <div className="w-3/10 flex-shrink-0 -ml-12 sm:-ml-16 lg:-ml-20">
+        <div className="w-full mx-auto px-3 sm:px-5 lg:pl-8 sm:max-w-6xl lg:max-w-none flex items-center justify-center lg:justify-start gap-20 sm:gap-32 lg:gap-4 overflow-hidden">
+          {/* Logo SVG - Full width centered on mobile, large on large screens */}
+          <div className="w-full lg:w-auto flex justify-center lg:flex-shrink-0">
             <svg
               width="100%"
               viewBox="0 0 301 160"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full"
+              className="w-full max-w-xs sm:max-w-lg lg:max-w-2xl"
               preserveAspectRatio="xMidYMid meet"
             >
               <rect
@@ -94,9 +94,9 @@ export const CoverLogoSection: React.FC<CoverLogoSectionProps> = () => {
             </svg>
           </div>
 
-          {/* CampusGuide Text SVG - 70% width */}
+          {/* CampusGuide Text SVG - Hidden on mobile, displayed beside logo on sm+ */}
           <svg
-            className="w-7/10 h-auto mt-24 scale-125"
+            className="w-7/10 h-auto mt-0 sm:mt-12 scale-125 lg:scale-100 hidden sm:block lg:mt-8 flex-shrink-0"
             viewBox="0 0 1058 121"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

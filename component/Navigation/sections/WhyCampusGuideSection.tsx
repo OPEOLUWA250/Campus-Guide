@@ -125,7 +125,7 @@ export const WhyCampusGuideSection: React.FC<
               >
                 {/* Icon */}
                 <div
-                  className="mb-4 sm:mb-6 w-fit inline-flex items-center justify-center p-3 sm:p-4 rounded-xl flex-shrink-0"
+                  className="mb-4 sm:mb-6 w-fit inline-flex items-center justify-center p-2 sm:p-3 rounded-xl flex-shrink-0"
                   style={{ backgroundColor: "#CD96FA" }}
                 >
                   <Icon

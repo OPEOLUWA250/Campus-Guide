@@ -13,10 +13,14 @@ import CoverLogoSection from "@/component/Navigation/sections/CoverLogoSection";
 import ContributeForm, {
   ContributeFormData,
 } from "@/component/Navigation/sections/ContributeForm";
+import ContributeSuccess from "@/component/Navigation/sections/contribute/ContributeSuccess";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showContributeForm, setShowContributeForm] = useState(false);
+  const [showSuccessPage, setShowSuccessPage] = useState(false);
+  const [submittedFormData, setSubmittedFormData] =
+    useState<ContributeFormData | null>(null);
 
   const handleCtaClick = () => {
     // Navigate to live map
@@ -34,9 +38,9 @@ export default function Home() {
 
   const handleContributeSubmit = (formData: ContributeFormData) => {
     console.log("Contribute form submitted:", formData);
-    // Navigate to next page or show success message
-    // You can add your logic here
+    setSubmittedFormData(formData);
     setShowContributeForm(false);
+    setShowSuccessPage(true);
   };
 
   if (showContributeForm) {
@@ -44,6 +48,15 @@ export default function Home() {
       <ContributeForm
         onClose={() => setShowContributeForm(false)}
         onSubmit={handleContributeSubmit}
+      />
+    );
+  }
+
+  if (showSuccessPage && submittedFormData) {
+    return (
+      <ContributeSuccess
+        userName={submittedFormData.contributorName || "youthmapperX"}
+        userEmail={submittedFormData.email || "youthmapperX@gmail.com"}
       />
     );
   }
@@ -57,6 +70,8 @@ export default function Home() {
             onCtaClick={handleCtaClick}
             onMenuClick={() => setIsMenuOpen(!isMenuOpen)}
             onContributeClick={handleContributeClick}
+            isMenuOpen={isMenuOpen}
+            onMenuChange={setIsMenuOpen}
           />
         </section>
 

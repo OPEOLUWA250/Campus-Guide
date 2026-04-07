@@ -51,8 +51,8 @@ export const HowToGetStartedSection: React.FC<HowToGetStartedSectionProps> = ({
   return (
     <section className="w-full py-16 sm:py-24 bg-white">
       <div className="flex flex-col items-center justify-center px-4 sm:px-6">
-        {/* CRITICAL: max-w-7xl is intentional - ensures proper card width on large screens */}
-        <div className="w-full max-w-7xl">
+        {/* CRITICAL: max-w-6xl matches HeroSection width */}
+        <div className="w-full max-w-6xl">
           {/* Header - Like QuickSearch */}
           <div className="text-center space-y-2 sm:space-y-4 mb-8 sm:mb-16">
             <div className="flex items-center justify-center gap-2 sm:gap-4">

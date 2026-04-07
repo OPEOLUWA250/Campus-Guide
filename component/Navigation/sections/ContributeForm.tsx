@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { COLORS } from "@/constant/design";
+import { useToast } from "@/lib/context/use-toast";
 import { InstitutionInput } from "./contribute/InstitutionInput";
 import { CountrySelect } from "./contribute/CountrySelect";
 import { AddressInput } from "./contribute/AddressInput";
@@ -39,6 +40,7 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
   onClose,
   onSubmit,
 }) => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState<ContributeFormData>({
     institution: "",
     country: "",
@@ -72,7 +74,11 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
         !formData.address ||
         !formData.chapterName
       ) {
-        alert("Please fill in all fields");
+        toast({
+          title: "Field required",
+          description: "Please fill in all fields before proceeding.",
+          variant: "destructive",
+        });
         return;
       }
       setCurrentStep(1);
@@ -84,14 +90,22 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
         !formData.phoneNumber ||
         !formData.roleInChapter
       ) {
-        alert("Please fill in all fields");
+        toast({
+          title: "Field required",
+          description: "Please fill in all fields before proceeding.",
+          variant: "destructive",
+        });
         return;
       }
       setCurrentStep(2);
     } else if (currentStep === 2) {
       // Page 3 validation
       if (!formData.campusBoundary || !formData.campusPicture) {
-        alert("Please upload both files");
+        toast({
+          title: "Files required",
+          description: "Please upload both campus boundary and picture files.",
+          variant: "destructive",
+        });
         return;
       }
       // Final submission

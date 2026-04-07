@@ -75,7 +75,7 @@ export const UniversitiesSection: React.FC<UniversitiesSectionProps> = ({
     return () => clearInterval(interval);
   }, []);
   return (
-    <section className="w-full py-24 sm:py-32 bg-white mt-0 pt-32 sm:pt-96 pb-24 sm:pb-32">
+    <section className="w-full py-24 sm:py-32 bg-white mt-0 pt-12 sm:pt-96 pb-24 sm:pb-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-12">
         {/* Header */}
         <div className="w-full text-center space-y-2">

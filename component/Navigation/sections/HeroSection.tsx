@@ -25,9 +25,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
         }}
       >
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center px-6 sm:px-8 lg:px-12 py-8 sm:py-12 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center px-6 sm:px-8 lg:px-12 py-12 sm:py-8 lg:py-12">
           {/* Left Content */}
-          <div className="space-y-4 sm:space-y-5 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left pb-4 sm:pb-8 lg:pb-0">
+          <div className="space-y-4 sm:space-y-5 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left pb-6 sm:pb-8 lg:pb-0">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
               Campus navigation
               <br className="sm:hidden" /> made{" "}
@@ -54,14 +54,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
             >
               <GoLiveMapIcon size={20} color="white" />
               Go to live map
-              <ArrowRightIcon size={16} color="white" />
             </button>
           </div>
 
           {/* Right - Map Preview Card */}
           <div className="relative order-1 lg:order-2 w-full h-full flex justify-end pb-4 sm:pb-8 lg:pb-0">
             {/* Map Container */}
-            <div className="relative rounded-[30px] lg:rounded-[65.48px] overflow-hidden h-56 sm:h-72 w-[80%] sm:w-[28rem] shadow-lg">
+            <div className="relative rounded-[30px] lg:rounded-[65.48px] overflow-hidden h-56 sm:h-72 lg:h-96 w-[85%] sm:w-[28rem] max-w-xs sm:max-w-none shadow-lg">
               {/* MapMaker Image */}
               <Image
                 src="/MapMaker.png"
@@ -69,6 +68,36 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
                 fill
                 className="object-cover"
               />
+
+              {/* Route SVG Overlay - Responsive Curved Path */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Curved dashed route path */}
+                <path
+                  d="M 25 15 Q 50 40 75 65"
+                  stroke="#8400F2"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeDasharray="5,5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+
+              {/* Avatar Overlay - Positioned at route endpoint */}
+              <div className="absolute right-4 sm:right-6 bottom-6 sm:bottom-8 w-10 sm:w-12 h-10 sm:h-12 rounded-full border-2 border-white shadow-lg overflow-hidden bg-gray-300 flex-shrink-0">
+                <Image
+                  src="/avatar.png"
+                  alt="Route user"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             {/* Overlaid Card - Center Left, 30% outside */}

@@ -2,12 +2,15 @@
 
 import React, { useState } from "react";
 import Header from "@/component/Navigation/Header";
+import MobileMenu from "@/component/Navigation/MobileMenu";
 import HeroSection from "@/component/Navigation/sections/HeroSection";
 
 interface HeroWrapperProps {
   onCtaClick?: () => void;
   onMenuClick?: () => void;
   onContributeClick?: () => void;
+  isMenuOpen?: boolean;
+  onMenuChange?: (isOpen: boolean) => void;
 }
 
 /**
@@ -18,11 +21,20 @@ export const HeroViewport: React.FC<HeroWrapperProps> = ({
   onCtaClick,
   onMenuClick,
   onContributeClick,
+  isMenuOpen = false,
+  onMenuChange,
 }) => {
   return (
     <div className="relative w-full h-screen flex flex-col overflow-hidden bg-white pt-20">
       {/* Navbar - Fixed positioned, won't affect layout */}
       <Header onMenuClick={onMenuClick} onContributeClick={onContributeClick} />
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={() => onMenuChange?.(false)}
+        onContributeClick={onContributeClick || (() => {})}
+      />
 
       {/* Hero Section - full height, navbar floats above */}
       <div className="flex-1 flex items-center justify-center">

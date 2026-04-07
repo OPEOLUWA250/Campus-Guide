@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="w-full h-full"
             />
           </div>
-          <span className="text-lg font-normal hidden sm:inline text-gray-900">
+          <span className="text-sm sm:text-lg font-normal sm:font-normal text-gray-900">
             CampusGuide
           </span>
         </Link>

@@ -105,7 +105,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
           {/* Go to Live Map Button - Mobile, Below Image */}
           <button
             onClick={onExplore}
-            className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full font-light text-white transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 w-fit sm:w-full"
+            className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full font-light text-white transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 mx-auto"
             style={{ backgroundColor: COLORS.primary }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = COLORS.primaryLight;
