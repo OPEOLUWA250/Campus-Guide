@@ -3,12 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { COLORS } from "@/constant/design";
-import {
-  MapLocationIcon,
-  ArrowRightIcon,
-  LocationMarkerIcon,
-  GoLiveMapIcon,
-} from "@/utils/svg-icons";
+import { GoLiveMapIcon } from "@/utils/svg-icons";
 
 interface HeroSectionProps {
   onCtaClick?: () => void;
@@ -57,62 +52,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
             </button>
           </div>
 
-          {/* Right - Map Preview Card */}
+          {/* Right - Hero Image */}
           <div className="relative order-1 lg:order-2 w-full h-full flex justify-end pb-4 sm:pb-8 lg:pb-0">
-            {/* Map Container */}
-            <div className="relative rounded-[30px] lg:rounded-[65.48px] overflow-hidden h-56 sm:h-72 lg:h-96 w-[85%] sm:w-[28rem] max-w-xs sm:max-w-none shadow-lg">
-              {/* MapMaker Image */}
+            {/* Hero Image Container */}
+            <div className="relative rounded-[30px] lg:rounded-[65.48px] overflow-hidden h-56 sm:h-72 lg:h-96 w-[85%] sm:w-[68rem] max-w-xs sm:max-w-none shadow-lg">
+              {/* Hero Image */}
               <Image
-                src="/MapMaker.png"
+                src="/hero-img.png"
                 alt="Campus Map"
                 fill
-                className="object-cover"
+                className="object-cover object-left"
               />
-
-              {/* Route SVG Overlay - Responsive Curved Path */}
-              <svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="xMidYMid slice"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Curved dashed route path */}
-                <path
-                  d="M 25 15 Q 50 40 75 65"
-                  stroke="#8400F2"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="5,5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-
-              {/* Avatar Overlay - Positioned at route endpoint */}
-              <div className="absolute right-4 sm:right-6 bottom-6 sm:bottom-8 w-10 sm:w-12 h-10 sm:h-12 rounded-full border-2 border-white shadow-lg overflow-hidden bg-gray-300 flex-shrink-0">
-                <Image
-                  src="/avatar.png"
-                  alt="Route user"
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Overlaid Card - Center Left, 30% outside */}
-            <div className="absolute left-0 sm:left-[-2%] top-1/2 transform -translate-y-1/2 bg-white rounded-2xl p-3 sm:p-4 shadow-lg flex items-center gap-4">
-              <div className="bg-gray-100 rounded-full p-2 flex-shrink-0">
-                <LocationMarkerIcon size={22} color="#992BF4" />
-              </div>
-              <div className="flex flex-col gap-1">
-                <p className="text-xs sm:text-sm text-gray-500 font-light">
-                  Where are you going to?
-                </p>
-                <p className="text-xs sm:text-sm font-semibold text-gray-900">
-                  Senate Building
-                </p>
-              </div>
             </div>
           </div>
         </div>
