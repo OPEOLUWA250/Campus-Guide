@@ -44,7 +44,7 @@ export const UniversitiesSection: React.FC<UniversitiesSectionProps> = ({
 
   // CRITICAL: Auto-scroll carousel logic - DO NOT REMOVE
   // Sets up interval-based scrolling with direction reversal at boundaries
-  // Scrolls every 10ms with 2px increment, reverses direction when reaching edges
+  // Scrolls every 50ms with 2px increment, reverses direction when reaching edges
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
@@ -70,7 +70,7 @@ export const UniversitiesSection: React.FC<UniversitiesSectionProps> = ({
       scrollContainer.scrollLeft = newScrollLeft;
     };
 
-    const interval = setInterval(scroll, 10);
+    const interval = setInterval(scroll, 50);
 
     return () => clearInterval(interval);
   }, []);
@@ -89,7 +89,7 @@ export const UniversitiesSection: React.FC<UniversitiesSectionProps> = ({
         {/* Universities Grid */}
         <div className="flex justify-center w-full px-4 sm:px-0">
           <div
-            className="rounded-3xl sm:rounded-[40px] p-4 sm:p-8 w-[90vw] sm:max-w-6xl"
+            className="rounded-3xl sm:rounded-[40px] py-4 sm:py-8 w-[90vw] sm:max-w-6xl"
             style={{
               backgroundColor: "#F3F4F6",
             }}

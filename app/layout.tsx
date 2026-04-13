@@ -4,10 +4,6 @@ import { Providers } from "@/lib/context/Providers";
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Suspense } from "react";
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Campus Guide",
@@ -21,14 +17,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${work_sans.variable} ${sora.variable}`}
+    >
       <head>
         <link
           href="https://unpkg.com/mapillary-js@4.1.2/dist/mapillary.css"
           rel="stylesheet"
         />
       </head>
-      <body className={`${work_sans.variable} ${sora.variable}`}>
+      <body className="w-screen">
         <Providers>
           <Suspense>
             <div className="w-screen">{children}</div>

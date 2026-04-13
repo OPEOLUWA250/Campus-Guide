@@ -109,18 +109,9 @@ export const WhyCampusGuideSection: React.FC<
             return (
               <div
                 key={idx}
-                className="rounded-2xl p-5 sm:p-8 pb-3 sm:pb-8 border transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer group h-auto sm:h-auto flex flex-col"
+                className="why-campusguide-card rounded-2xl p-5 sm:p-8 pb-3 sm:pb-8 border hover:shadow-xl hover:scale-105 cursor-pointer group h-auto sm:h-auto flex flex-col"
                 style={{
                   backgroundColor: COLORS.dark.bg,
-                  borderColor: "white",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = COLORS.accent.yellow;
-                  e.currentTarget.style.boxShadow = `0 20px 40px ${COLORS.primary}20`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "white";
-                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
                 {/* Icon */}

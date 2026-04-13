@@ -5,6 +5,27 @@
 @tailwind utilities;
 
 :root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.6% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 47.6% 11.2%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 47.6% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+
   /* Campus Guide Blues  */
   --cg-blue-50: #e8e6ea;
   --cg-blue-75: #a096a8;
@@ -19,7 +40,7 @@
   --cg-purple-75: #cd96fa;
   --cg-purple-100: #b86bf7;
   --cg-purple-200: #992bf4;
-  --cg-purple-300: #8400F2;
+  --cg-purple-300: #8400f2;
   --cg-purple-400: #5c00a9;
   --cg-purlpe-500: #510094;
 
@@ -37,8 +58,8 @@
   --cg-success: #4cc94c;
   --cg-error: #ff4343;
   --cg-warning: #eeee27;
-  --cg-white:#EFEEF3;
-  --cg-white-dark:#F4F6F8;
+  --cg-white: #efeef3;
+  --cg-white-dark: #f4f6f8;
 
   --font-size-primary-h1: 8rem;
   --font-size-primary-h2: 5.62rem;
@@ -66,13 +87,13 @@
   --font-size-secondary-h4: 4.08rem;
   --font-size-secondary-h5: 2.43rem;
   --font-size-secondary-p1: 1.9375rem;
-  --font-size-secondary-p2: 1.5625rem; 
-  --font-size-secondary-p3: 1.25rem; 
-  --font-size-secondary-p4: 1rem; 
+  --font-size-secondary-p2: 1.5625rem;
+  --font-size-secondary-p3: 1.25rem;
+  --font-size-secondary-p4: 1rem;
 
   --line-height-secondary-h1: 7.48rem;
   --line-height-secondary-h2: 6.0468rem;
-  --line-height-secondary-h3: 4.80rem;
+  --line-height-secondary-h3: 4.8rem;
   --line-height-secondary-h4: 3.86em;
   --line-height-secondary-h5: 2.44em;
   --line-height-secondary-p1: 1.9375rem;
@@ -80,9 +101,8 @@
   --line-height-secondary-p3: 1.575em;
   --line-height-secondary-p4: 1.68rem;
 
-  --font-work-sans: 'Work Sans', sans-serif;
-  --font-sora: 'Sora', sans-serif;
-
+  --font-work-sans: "Work Sans", sans-serif;
+  --font-sora: "Sora", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -97,6 +117,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Why CampusGuide Card Hover Styles */
+.why-campusguide-card {
+  @apply border-white transition-all duration-300;
+  border-color: white;
+}
+
+.why-campusguide-card:hover {
+  border-color: var(--cg-yellow-300);
+  box-shadow: 0 20px 40px rgba(132, 0, 242, 0.2);
 }
 
 html,
@@ -118,15 +149,15 @@ body,
   }
 }
 
-@layer components{
-  .map-control-icon{
+@layer components {
+  .map-control-icon {
     @apply h-4 w-4;
   }
-  .btn{
-    @apply md:py-4 md:px-6 py-2.5 px-4 rounded-full ;
+  .btn {
+    @apply md:py-4 md:px-6 py-2.5 px-4 rounded-full;
   }
 
-  .sidebar-style{
+  .sidebar-style {
     @apply border-2 border-solid border-cg-blue-200;
   }
 
@@ -141,7 +172,6 @@ body,
   .theme {
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
-
   }
   :root {
     --background: oklch(1 0 0);
@@ -176,7 +206,6 @@ body,
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
-
   }
   .dark {
     --background: oklch(0.145 0 0);
@@ -210,19 +239,14 @@ body,
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
-
   }
   * {
     @apply border-border outline-ring/50;
-
   }
   body {
     @apply bg-background text-foreground;
-
   }
   html {
     @apply font-sans;
-
   }
-
 }

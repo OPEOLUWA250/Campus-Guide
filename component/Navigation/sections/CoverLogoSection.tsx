@@ -8,9 +8,9 @@ interface CoverLogoSectionProps {}
 export const CoverLogoSection: React.FC<CoverLogoSectionProps> = () => {
   return (
     <section className="w-full bg-white pt-12 sm:pt-16 pb-0 overflow-hidden">
-      <div className="flex items-center h-full w-full">
+      <div className="flex items-end h-full w-full">
         {/* Container with max-width for the logo */}
-        <div className="w-full mx-auto px-3 sm:px-5 lg:pl-8 sm:max-w-6xl lg:max-w-none flex items-center justify-center lg:justify-start gap-20 sm:gap-32 lg:gap-4 overflow-hidden">
+        <div className="w-full mx-auto px-3 sm:px-5 lg:pl-8 sm:max-w-6xl lg:max-w-none flex items-end justify-center lg:justify-start gap-20 sm:gap-32 lg:gap-4 overflow-hidden">
           {/* Logo SVG - Full width centered on mobile, large on large screens */}
           <div className="w-full lg:w-auto flex justify-center lg:flex-shrink-0">
             <svg
@@ -96,7 +96,7 @@ export const CoverLogoSection: React.FC<CoverLogoSectionProps> = () => {
 
           {/* CampusGuide Text SVG - Hidden on mobile, displayed beside logo on sm+ */}
           <svg
-            className="w-7/10 h-auto mt-0 sm:mt-12 scale-125 lg:scale-100 hidden sm:block lg:mt-8 flex-shrink-0"
+            className="w-7/10 h-auto mt-8 sm:mt-20 scale-125 lg:scale-100 hidden sm:block lg:mt-12 flex-shrink-0"
             viewBox="0 0 1058 121"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
