@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
     <div className="w-full overflow-hidden flex items-center justify-center px-4 sm:px-6">
       {/* Main Hero Card - Brand Blue Background */}
       <div
-        className="w-full max-w-6xl rounded-[40px] lg:rounded-[96px] overflow-hidden shadow-2xl border border-gray-200"
+        className="w-full max-w-6xl rounded-[40px] lg:rounded-[96px] overflow-hidden border border-gray-200"
         style={{
           backgroundColor: COLORS.dark.bg,
         }}
