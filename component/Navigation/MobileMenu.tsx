@@ -25,12 +25,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
 
   return (
     <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/50 z-40 md:hidden"
-        onClick={onClose}
-      />
-
       {/* Mobile Menu */}
       <div className="fixed top-20 left-4 right-4 bg-white rounded-2xl shadow-xl z-50 md:hidden">
         <div className="flex flex-col py-4 px-4 space-y-3">

@@ -188,7 +188,10 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4 py-0 overflow-hidden">
+    <div
+      className="w-full h-screen bg-cover bg-center flex items-center justify-center px-4 py-0 overflow-hidden"
+      style={{ backgroundImage: "url('/contribute-bg.png')" }}
+    >
       <div className="w-full max-w-xl h-full flex flex-col items-center justify-start pt-3 sm:pt-3">
         {/* Header - Logo + Text - Positioned at top */}
         <div className="flex-shrink-0 pb-0 sm:pb-0.5 flex items-center justify-center gap-2">

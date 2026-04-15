@@ -53,9 +53,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
           </div>
 
           {/* Right - Hero Image */}
-          <div className="relative order-1 lg:order-2 w-full h-full flex justify-end pb-4 sm:pb-8 lg:pb-0">
+          <div className="relative order-1 lg:order-2 w-full h-full flex justify-center lg:justify-end pb-4 sm:pb-8 lg:pb-0">
             {/* Hero Image Container */}
-            <div className="relative rounded-[30px] lg:rounded-[65.48px] overflow-hidden h-56 sm:h-72 lg:h-96 w-[85%] sm:w-[68rem] max-w-xs sm:max-w-none shadow-lg">
+            <div className="relative rounded-[30px] lg:rounded-[65.48px] overflow-hidden h-56 sm:h-72 lg:h-96 w-full sm:w-[68rem] max-w-none shadow-lg">
               {/* Hero Image */}
               <Image
                 src="/hero-img.png"

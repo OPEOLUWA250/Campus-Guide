@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HeroViewport from "@/component/Navigation/sections/HeroViewport";
 import Footer from "@/component/Navigation/Footer";
 import QuickSearchSection from "@/component/Navigation/sections/QuickSearchSection";
@@ -21,6 +21,27 @@ export default function Home() {
   const [showSuccessPage, setShowSuccessPage] = useState(false);
   const [submittedFormData, setSubmittedFormData] =
     useState<ContributeFormData | null>(null);
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [isMenuOpen]);
 
   const handleCtaClick = () => {
     // Navigate to live map

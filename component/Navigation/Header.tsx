@@ -10,11 +10,13 @@ import { WebMapIcon, ContributeIconArrow } from "@/utils/svg-icons";
 interface HeaderProps {
   onMenuClick?: () => void;
   onContributeClick?: () => void;
+  isMenuOpen?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onMenuClick,
   onContributeClick,
+  isMenuOpen = false,
 }) => {
   const isVisible = useHideOnScroll();
 
@@ -82,25 +84,43 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={onMenuClick}
             className="md:hidden flex items-center justify-center w-9 h-9 rounded-full border border-gray-300 hover:bg-gray-50 transition"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.5 6.5H19.5H4.5ZM4.5 12H19.5H4.5ZM4.5 17.5H19.5H4.5Z"
-                fill="#3F2B50"
-              />
-              <path
-                d="M4.5 6.5H19.5M4.5 12H19.5M4.5 17.5H19.5"
-                stroke="#3F2B50"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {isMenuOpen ? (
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="#3F2B50"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ) : (
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.5 6.5H19.5H4.5ZM4.5 12H19.5H4.5ZM4.5 17.5H19.5H4.5Z"
+                  fill="#3F2B50"
+                />
+                <path
+                  d="M4.5 6.5H19.5M4.5 12H19.5M4.5 17.5H19.5"
+                  stroke="#3F2B50"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
           </button>
         </div>
       </nav>

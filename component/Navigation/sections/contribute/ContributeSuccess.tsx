@@ -22,7 +22,10 @@ export const ContributeSuccess: React.FC<ContributeSuccessProps> = ({
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4 py-8 overflow-hidden">
+    <div
+      className="w-full min-h-screen bg-cover bg-center flex items-center justify-center px-4 py-8 overflow-hidden"
+      style={{ backgroundImage: "url('/contribute-bg.png')" }}
+    >
       <div className="w-full max-w-xl flex flex-col items-center justify-center gap-8">
         {/* Header - Logo + Text */}
         <div className="flex items-center justify-center gap-2">
