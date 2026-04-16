@@ -25,7 +25,7 @@ export const HeroViewport: React.FC<HeroWrapperProps> = ({
   onMenuChange,
 }) => {
   return (
-    <div className="relative w-full h-screen flex flex-col overflow-hidden bg-white pt-20">
+    <div className="relative w-full h-screen flex flex-col overflow-hidden bg-white pt-4 sm:pt-20">
       {/* Navbar - Fixed positioned, won't affect layout */}
       <Header
         onMenuClick={onMenuClick}
