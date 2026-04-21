@@ -5,7 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { COLORS } from "@/constant/design";
 import { useHideOnScroll } from "@/lib/hooks/useHideOnScroll";
-import { WebMapIcon, ContributeIconArrow } from "@/utils/svg-icons";
+import {
+  ContributeIcon,
+  MapIcon,
+  ContributeBg,
+  Hamburger,
+} from "@/assets/icons";
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -57,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
             href="/map"
             className="hidden md:flex items-center gap-1.5 text-gray-600 hover:text-gray-900 transition px-3 py-2 rounded-lg hover:bg-gray-50"
           >
-            <WebMapIcon size={18} color="#3F2B50" />
+            <MapIcon size={18} color={COLORS.secondary} />
             <span className="text-sm font-medium">Web map</span>
           </Link>
 
@@ -75,8 +80,8 @@ export const Header: React.FC<HeaderProps> = ({
               e.currentTarget.style.backgroundColor = COLORS.primary;
             }}
           >
-            <ContributeIconArrow size={13} color="white" />
             <span className="text-sm">Contribute</span>
+            <ContributeBg size={13} color="white" />
           </button>
 
           {/* Mobile Menu Button */}
@@ -101,25 +106,7 @@ export const Header: React.FC<HeaderProps> = ({
                 />
               </svg>
             ) : (
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.5 6.5H19.5H4.5ZM4.5 12H19.5H4.5ZM4.5 17.5H19.5H4.5Z"
-                  fill="#3F2B50"
-                />
-                <path
-                  d="M4.5 6.5H19.5M4.5 12H19.5M4.5 17.5H19.5"
-                  stroke="#3F2B50"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <Hamburger />
             )}
           </button>
         </div>

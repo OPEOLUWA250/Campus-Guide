@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GitHubIcon, LoveIcon } from "@/utils/svg-icons";
+import { GitHubIcon, LoveIcon, YouthMappersIcon } from "@/assets/icons";
 
 interface FooterProps {}
 
@@ -34,7 +34,10 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
 
           {/* Supported by Line */}
-          <div className="text-center text-gray-900">Supported by</div>
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-gray-900">Supported by</span>
+            <YouthMappersIcon size={60} />
+          </div>
 
           {/* Copyright Line */}
           <div className="text-center text-gray-600 text-sm">

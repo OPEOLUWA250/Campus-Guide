@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { COLORS, BORDER_RADIUS } from "@/constant/design";
-import { UniversityLocationIcon } from "@/utils/svg-icons";
+import { LocationIcon } from "@/assets/icons";
 
 interface UniversitiesSectionProps {
   universities?: Array<{ name: string; abbr: string }>;
@@ -107,7 +107,7 @@ export const UniversitiesSection: React.FC<UniversitiesSectionProps> = ({
                   key={idx}
                   className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-light transition hover:shadow-md bg-white flex-shrink-0"
                 >
-                  <UniversityLocationIcon size={20} color={COLORS.primary} />
+                  <LocationIcon size={20} color={COLORS.primary} />
                   <span>{uni.name}</span>
                 </div>
               ))}

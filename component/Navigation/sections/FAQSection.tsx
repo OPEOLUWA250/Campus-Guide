@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { COLORS } from "@/constant/design";
-import { ChevronUpIcon } from "@/utils/svg-icons";
+import { ChevronUpIcon } from "@/assets/icons";
 
 interface FAQ {
   question: string;
@@ -54,7 +54,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
               {title}
             </h2>
-            <p className="text-base text-gray-600 flex-wrap">{subtitle}</p>
+            <p className="text-base text-gray-600 flex-wrap whitespace-pre-line">
+              {subtitle}
+            </p>
           </div>
 
           {/* FAQ Accordion */}
@@ -74,7 +76,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
                   }
                   className="w-full px-3 sm:px-4 py-4 flex items-center justify-between hover:opacity-80 transition"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 text-left">
+                  <h3 className="text-lg font-medium text-gray-900 text-left">
                     {faq.question}
                   </h3>
                   <div
@@ -87,7 +89,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
                         expandedIdx === idx ? "rotate(0deg)" : "rotate(180deg)",
                     }}
                   >
-                    <ChevronUpIcon size={16} color="#3F2B50" />
+                    <ChevronUpIcon size={16} color={COLORS.secondary} />
                   </div>
                 </button>
 

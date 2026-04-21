@@ -10,7 +10,6 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        "work-sans": ["var(--font-work-sans)"],
         sora: ["var(--font-sora)"],
       },
       screens: {

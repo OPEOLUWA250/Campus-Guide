@@ -8,8 +8,9 @@ import UniversitiesSection from "@/component/Navigation/sections/UniversitiesSec
 import WhyCampusGuideSection from "@/component/Navigation/sections/WhyCampusGuideSection";
 import HowToGetStartedSection from "@/component/Navigation/sections/HowToGetStartedSection";
 import FAQSection from "@/component/Navigation/sections/FAQSection";
+import MobileContributeSection from "@/component/Navigation/sections/MobileContributeSection";
 import BackToTop from "@/component/Navigation/BackToTop";
-import CoverLogoSection from "@/component/Navigation/sections/CoverLogoSection";
+import AfterFooterSection from "@/component/Navigation/sections/AfterFooterSection";
 import ContributeForm, {
   ContributeFormData,
 } from "@/component/Navigation/sections/ContributeForm";
@@ -116,6 +117,9 @@ export default function Home() {
           <HowToGetStartedSection onWatchDemo={handleWatchDemo} />
         </section>
 
+        {/* Mobile Contribute Section */}
+        <MobileContributeSection onContributeClick={handleContributeClick} />
+
         {/* FAQ Section */}
         <section id="FAQ">
           <FAQSection />
@@ -124,8 +128,7 @@ export default function Home() {
 
       <Footer />
 
-      {/* Cover Logo Section */}
-      <CoverLogoSection />
+      <AfterFooterSection />
 
       {/* Back to Top Button */}
       <BackToTop />

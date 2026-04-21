@@ -58,7 +58,6 @@ const ShareModal = ({
   const { SHARE_ROUTE_CONFIG } = APP_CONFIG;
   const { sharedUrl, routeInfo } = useAppContext();
 
-
   const activeRouteDetails = routeInfo && routeInfo.length > 0;
 
   return (
@@ -80,21 +79,16 @@ const ShareModal = ({
           <div className="flex items-center gap-4">
             <RouteProfileActiveIcon routeProfile={routeProfile} />
             <div className="w-full ">
-              {/* <p className="text-p-base font-medium text-blue-400 truncate text-ellipsis w-[95%]">
-                <span className="text-p-base font-medium text-blue-100 ">
-                  From
-                </span>{" "}
-                FUTA NorthGate
-              </p> */}
               <div className="flex flex-col md:flex-row md:items-center gap-4">
                 <p className="text-p-base font-medium text-blue-400 w-[70%] truncate">
                   <span className="text-p-base font-medium text-blue-100">
-                  To:
+                    To:
                   </span>{" "}
                   {activeRouteDetails && routeInfo[0].legs[0].summary}
                 </p>
                 <span className="text-p-base font-medium text-blue-100">
-                  {activeRouteDetails && getFormattedEstimatedTime(routeInfo[0].duration)}
+                  {activeRouteDetails &&
+                    getFormattedEstimatedTime(routeInfo[0].duration)}
                 </span>
               </div>
             </div>
@@ -133,7 +127,9 @@ const ShareModal = ({
               className="flex flex-col items-center gap-2 cursor-pointer hover:opacity-80"
             >
               <item.icon className="md:h-auto md:w-auto h-5 w-5" />
-              <span className="text-blue-200 md:text-p-base text-sm">{item.label}</span>
+              <span className="text-blue-200 md:text-p-base text-sm">
+                {item.label}
+              </span>
             </Link>
           ))}
         </div>

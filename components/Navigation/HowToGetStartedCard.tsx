@@ -30,10 +30,7 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
   const isLeftImage = imagePosition === "left";
 
   return (
-    <div
-      className="rounded-[40px] lg:rounded-[60px] overflow-hidden border border-gray-200 w-full"
-      style={{ backgroundColor: "#EFEEF3" }}
-    >
+    <div className="rounded-[40px] lg:rounded-[60px] overflow-hidden border border-gray-200 w-full bg-get-started">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center p-6 sm:p-8 lg:p-12">
         {/* Left Content or Image */}
         {isLeftImage && (
@@ -58,20 +55,14 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
         >
           {/* Step Number */}
           <div className="flex items-center gap-6 mb-6">
-            <div
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-lg sm:text-xl font-normal flex-shrink-0 font-sora"
-              style={{
-                backgroundColor: COLORS.accent.yellow,
-                color: "#18002C",
-              }}
-            >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-lg sm:text-xl font-normal flex-shrink-0 font-sora bg-step-badge text-navy-dark">
               {number}
             </div>
           </div>
 
           {/* Title, Description, Button with equal spacing */}
           <div className="space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 whitespace-pre-line">
               {title}
             </h3>
 
@@ -82,19 +73,8 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
             {/* Buttons */}
             <div className="flex flex-wrap gap-3">
               {hasButton && (
-                <button
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-light border text-sm transition-all"
-                  style={{
-                    borderColor: "black",
-                    color: "black",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#f0f0f0";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent";
-                  }}
-                >
+                <button className="btn-outline-black inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-light text-sm">
+                  {buttonText}
                   <svg
                     width="17"
                     height="14"
@@ -110,22 +90,12 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
                       strokeLinejoin="round"
                     />
                   </svg>
-                  {buttonText}
                 </button>
               )}
               {hasDemoButton && (
                 <button
                   onClick={onDemoClick}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-light text-sm transition-all"
-                  style={{
-                    color: "black",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#f0f0f0";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent";
-                  }}
+                  className="btn-play-demo inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-light text-sm"
                 >
                   <svg
                     width="16"

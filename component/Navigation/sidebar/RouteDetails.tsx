@@ -6,7 +6,10 @@ import RouteInfoSkeleton from "@/component/shared/ui/skeleton/RouteInfoSkeleton"
 import { useGetPlace, useGetRoute } from "@/lib/api/query";
 import type { RouteData } from "@/types/route";
 import StepCard from "../StepCard";
-import { getFormattedDistance, getFormattedEstimatedTime } from "@/utils/navigation";
+import {
+  getFormattedDistance,
+  getFormattedEstimatedTime,
+} from "@/utils/navigation";
 
 const RouteDetails = () => {
   const {
@@ -21,7 +24,6 @@ const RouteDetails = () => {
   } = useAppContext();
   const [showRouteDetails, setShowRouteDetails] = useState(false);
 
-  // route request
   const { data, isLoading, isError, error } = useGetRoute(
     {
       lat: startMarker?.latitude || 0,
@@ -31,7 +33,7 @@ const RouteDetails = () => {
       lat: endMarker?.latitude || 0,
       lon: endMarker?.longitude || 0,
     },
-    routeProfile
+    routeProfile,
   );
 
   useEffect(() => {
@@ -58,22 +60,22 @@ const RouteDetails = () => {
                 {routeInfo[0].legs[0].summary}
               </h4>
               {routeInfo && routeInfo?.length > 0 && (
-                  <div>
-                    <div className="mt-1 font-sora">
-                      <span className="text-p-base">
-                        Est. time of arrival:{" "}
-                        <span className="font-semibold mt-4 text-p-base text-blue-200">
-                          {getFormattedEstimatedTime(routeInfo[0].duration)}
-                        </span>
-                        <span className="font-normal ml-2 text-p-base text-blue-200">
-                          ({getFormattedDistance(routeInfo[0].distance)})
-                        </span>{" "}
+                <div>
+                  <div className="mt-1 font-sora">
+                    <span className="text-p-base">
+                      Est. time of arrival:{" "}
+                      <span className="font-semibold mt-4 text-p-base text-blue-200">
+                        {getFormattedEstimatedTime(routeInfo[0].duration)}
                       </span>
-                    </div>
+                      <span className="font-normal ml-2 text-p-base text-blue-200">
+                        ({getFormattedDistance(routeInfo[0].distance)})
+                      </span>{" "}
+                    </span>
                   </div>
-                )}
+                </div>
+              )}
             </div>
-            
+
             <div>
               <div
                 className="text-center flex items-center justify-center w-full p-[9px] cursor-pointer"

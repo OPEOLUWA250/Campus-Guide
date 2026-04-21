@@ -2,7 +2,7 @@
 
 import React from "react";
 import { COLORS } from "@/constant/design";
-import { HowToGetStartedIcon } from "@/assets/icons/HowToGetStarted";
+import { GetStartedIcon } from "@/assets/icons";
 import { HowToGetStartedCard } from "@/components/Navigation/HowToGetStartedCard";
 
 interface HowToGetStartedSectionProps {
@@ -22,7 +22,7 @@ const STEPS = [
   },
   {
     number: 2,
-    title: "Upload Campus Boundary",
+    title: "Upload Campus\nBoundary",
     description:
       "Collaboratively map every campus feature and its attributes. Create comprehensive, detailed maps to enhance campus navigation for everyone.",
     imagePath: "/started-2.png",
@@ -33,7 +33,7 @@ const STEPS = [
   },
   {
     number: 3,
-    title: "Boundary Verification",
+    title: "Boundary\nVerification",
     description:
       "We manually verified if the area has be well mapped or requires update. Once verified, your campus boundary and details will be published on CampusGuide.",
     imagePath: "/started-3.png",
@@ -46,14 +46,14 @@ export const HowToGetStartedSection: React.FC<HowToGetStartedSectionProps> = ({
   onWatchDemo,
 }) => {
   return (
-    <section className="w-full py-16 sm:py-24 bg-white">
-      <div className="flex flex-col items-center justify-center px-4 sm:px-6">
+    <section className="w-full bg-white flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 pb-16 sm:pb-24">
+      <div className="flex flex-col items-center justify-center">
         {/* CRITICAL: max-w-6xl matches HeroSection width */}
         <div className="w-full max-w-6xl">
           {/* Header - Like QuickSearch */}
           <div className="text-center space-y-2 sm:space-y-4 mb-8 sm:mb-16">
             <div className="flex items-center justify-center gap-2 sm:gap-4">
-              <HowToGetStartedIcon size={32} />
+              <GetStartedIcon size={48} />
               <h2
                 className="text-lg sm:text-2xl font-light"
                 style={{ color: COLORS.primary }}

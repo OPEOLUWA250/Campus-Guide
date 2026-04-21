@@ -101,7 +101,6 @@
   --line-height-secondary-p3: 1.575em;
   --line-height-secondary-p4: 1.68rem;
 
-  --font-work-sans: "Work Sans", sans-serif;
   --font-sora: "Sora", sans-serif;
 }
 
@@ -147,6 +146,85 @@ body,
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Background images */
+  .bg-get-started {
+    background-image: url("/get-started-bg.png");
+    @apply bg-cover bg-center;
+  }
+
+  .bg-contribute-card {
+    background-image: url("/contribute-card-bg.png");
+    @apply bg-cover bg-center;
+  }
+
+  .bg-contribute {
+    background-image: url("/contribute-bg.png");
+    @apply bg-cover bg-center;
+  }
+
+  /* Color utilities */
+  .bg-dark-blue {
+    @apply bg-[#0f001b];
+  }
+
+  .bg-light-blue {
+    @apply bg-[#efeef3];
+  }
+
+  .bg-purple-primary {
+    @apply bg-[#992bf4];
+  }
+
+  .bg-purple-light {
+    @apply bg-[#cd96fa];
+  }
+
+  .bg-step-badge {
+    @apply bg-[#992bf4];
+  }
+
+  /* Text colors */
+  .text-navy-dark {
+    @apply text-[#18002c];
+  }
+
+  .text-dark {
+    @apply text-[#0f001b];
+  }
+}
+
+/* Button hover states */
+.btn-outline-black {
+  @apply border-2 border-black text-black bg-transparent;
+  transition: background-color 0.2s ease;
+}
+
+.btn-outline-black:hover {
+  @apply bg-gray-100;
+}
+
+.btn-play-demo {
+  @apply text-black bg-transparent;
+  transition: background-color 0.2s ease;
+}
+
+.btn-play-demo:hover {
+  @apply bg-gray-100;
+}
+
+/* Why CampusGuide Section */
+.why-campusguide-section-container {
+  background-color: var(--cg-blue-500);
+  border-color: var(--cg-yellow-300);
+}
+
+.why-campusguide-card-item {
+  background-color: var(--cg-blue-500);
+}
+
+.icon-badge {
+  background-color: var(--cg-purple-75);
 }
 
 @layer components {

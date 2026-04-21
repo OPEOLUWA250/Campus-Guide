@@ -70,13 +70,7 @@ export const FileUploadField: React.FC<FileUploadFieldProps> = ({
         {/* Upload Button */}
         <button
           type="button"
-          className="px-5 sm:px-4 py-2 sm:py-1.5 rounded-full text-sm sm:text-xs font-medium transition-all duration-300"
-          style={{
-            backgroundColor: "transparent",
-            borderWidth: "0.5px",
-            borderColor: "#992BF4",
-            color: "#992BF4",
-          }}
+          className="px-4 sm:px-3 py-0.5 sm:py-0 rounded-full text-xs sm:text-[11px] font-normal border border-purple-500 text-purple-500 bg-transparent hover:bg-purple-50 transition-all duration-300"
         >
           Upload files
         </button>

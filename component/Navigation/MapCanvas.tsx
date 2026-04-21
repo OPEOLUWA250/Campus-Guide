@@ -27,31 +27,17 @@ const MapCanvas = () => {
     routeProfile,
     maxBounds,
     modal,
-    setModal
+    setModal,
   } = useAppContext();
 
   const mapillaryTilesUrl = `https://tiles.mapillary.com/maps/vtp/mly1_computed_public/2/{z}/{x}/{y}?access_token=${MAPILLARY_TOKEN}`;
 
   const handleMapClickEvent = (event: MapLayerMouseEvent) => {
-    // const { features } = event;
-    // if (features && features.length > 0) {
-    //   // Query the Mapillary layer features at the clicked point
-    //   const mapillaryFeatures = features.filter(
-    //     (feature) => feature.layer.id === "mapillary"
-    //   );
-
-    //   if (mapillaryFeatures.length) {
-    //     const imageId = mapillaryFeatures[0]?.properties?.image_id;
-    //     console.log(mapillaryFeatures);
-    //     setMapillaryImageId(imageId);
-    //   }
-    //   return;
-    // }
-    if (!startMarker){
+    if (!startMarker) {
       setStartMarker({
         longitude: event.lngLat.lng,
         latitude: event.lngLat.lat,
-      })
+      });
       return;
     }
     if (endMarker) return;

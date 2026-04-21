@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronUpIcon } from "@/utils/svg-icons";
+import { ChevronUpIcon } from "@/assets/icons";
 import { COLORS } from "@/constant/design";
 
 /**

@@ -10,14 +10,12 @@ type PageLoaderProps = {
   onLoaded: () => void;
 };
 const PageLoader = ({ showLogo, onLoaded }: PageLoaderProps) => {
-  // states for percentage Value
   const [value, setValue] = useState(0);
 
-  // Updates Value based on Set Interval
   useEffect(() => {
     const interval = setInterval(() => {
-      let number = 0
-      setValue((v) => (v >= 100 ? 0 : v + (number+20)));
+      let number = 0;
+      setValue((v) => (v >= 100 ? 0 : v + (number + 20)));
 
       if (value === 100) {
         onLoaded();

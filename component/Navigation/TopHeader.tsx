@@ -41,7 +41,6 @@ const TopHeader = () => {
   const [usedCurrentLocation, setUsedCurrentLocation] = useState(false);
   const [showModal, setShowModal] = useState(true);
 
-  // route request
   const { data, isLoading, isError, error } = useGetRoute(
     {
       lat: startMarker?.latitude || 0,
@@ -61,11 +60,6 @@ const TopHeader = () => {
       }
     }
   }, [data, error, routeInfo, setRoute, setRouteInfo]);
-
-  // const { data, isLoading, isError, error } = useGetPlace(
-  //   "San Francisco",
-  //   5
-  // )
 
   const routeInfoAvailable = routeInfo && routeInfo?.length > 0;
 
@@ -218,15 +212,6 @@ const TopHeader = () => {
             </Button>
           </div>
         )}
-
-        {/* <Button
-      href="/"
-      className="bg-purple-300 font-medium w-fit h-fit md:text-p-base text-p-xs text-white"
-      icon={<RouteIcon />}
-      iconPosition="right"
-    >
-      <span>Contribute</span>
-    </Button> */}
       </div>
     </div>
   );

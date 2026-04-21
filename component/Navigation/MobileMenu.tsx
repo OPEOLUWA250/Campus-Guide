@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { COLORS } from "@/constant/design";
-import { WebMapIcon, ContributeIconArrow } from "@/utils/svg-icons";
+import { ContributeIcon, MapIcon } from "@/assets/icons";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -34,7 +34,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition"
             onClick={onClose}
           >
-            <WebMapIcon size={18} color="#3F2B50" />
+            <MapIcon size={18} color={COLORS.secondary} />
             <span className="text-sm font-medium">Web map</span>
           </Link>
 
@@ -52,7 +52,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
               e.currentTarget.style.backgroundColor = COLORS.primary;
             }}
           >
-            <ContributeIconArrow size={13} color="white" />
+            <ContributeIcon size={13} color="white" />
             <span className="text-sm">Contribute</span>
           </button>
         </div>

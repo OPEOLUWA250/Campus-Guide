@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { GitHubIcon, LoveIcon } from "@/utils/svg-icons";
+import { GitHubIcon, LoveIcon } from "@/assets/icons";
 
 interface FooterProps {}
 
@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-white border-t border-gray-200">
+    <footer className="w-full bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="space-y-8">
           {/* Join Community Line */}

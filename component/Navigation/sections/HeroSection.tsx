@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { COLORS } from "@/constant/design";
-import { GoLiveMapIcon } from "@/utils/svg-icons";
+import { MapIcon } from "@/assets/icons";
 
 interface HeroSectionProps {
   onCtaClick?: () => void;
@@ -47,7 +47,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
                 e.currentTarget.style.backgroundColor = COLORS.primary;
               }}
             >
-              <GoLiveMapIcon size={20} color="white" />
+              <MapIcon size={20} color="white" />
               Go to live map
             </button>
           </div>

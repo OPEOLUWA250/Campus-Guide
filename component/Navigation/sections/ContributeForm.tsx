@@ -2,6 +2,10 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { HeaderIcon } from "@/assets/icons";
 import { COLORS } from "@/constant/design";
 import { useToast } from "@/lib/context/use-toast";
 import { TextField } from "@/component/shared/ui/input";
@@ -10,6 +14,14 @@ import { FileUploadField } from "@/component/shared/ui/file-upload-field";
 import { MappingSlider } from "./contribute/MappingSlider";
 import { ProgressCarousel } from "./contribute/ProgressCarousel";
 import { COUNTRIES } from "./contribute/countriesData";
+import {
+  Step0Schema,
+  Step1Schema,
+  Step2Schema,
+  type Step0FormData,
+  type Step1FormData,
+  type Step2FormData,
+} from "@/lib/schemas/contribute-form-schema";
 
 // Icons for file uploads
 const BoundaryIcon = () => (
@@ -75,116 +87,70 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
   onSubmit,
 }) => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState<ContributeFormData>({
-    institution: "",
-    country: "",
-    address: "",
-    chapterName: "",
-    mappingPercentage: 0,
-    contributorName: "",
-    email: "",
-    phoneNumber: "",
-    roleInChapter: "",
-    campusBoundary: null,
-    campusPicture: null,
-  });
-
   const [currentStep, setCurrentStep] = useState(0);
 
-  const handleChange = (field: keyof ContributeFormData, value: any) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
+  // Initialize form with react-hook-form
+  const {
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm<ContributeFormData>({
+    mode: "onChange",
+    resolver: currentStep === 0
+      ? zodResolver(Step0Schema as any)
+      : currentStep === 1
+      ? zodResolver(Step1Schema as any)
+      : zodResolver(Step2Schema as any),
+    defaultValues: {
+      institution: "",
+      country: "",
+      address: "",
+      chapterName: "",
+      mappingPercentage: 0,
+      contributorName: "",
+      email: "",
+      phoneNumber: "",
+      roleInChapter: "",
+      campusBoundary: null,
+      campusPicture: null,
+    },
+  });
 
-  const handleNext = () => {
-    // Validate based on current step
-    if (currentStep === 0) {
-      // Page 1 validation
-      if (
-        !formData.institution ||
-        !formData.country ||
-        !formData.address ||
-        !formData.chapterName
-      ) {
-        toast({
-          title: "Field required",
-          description: "Please fill in all fields before proceeding.",
-          variant: "destructive",
-        });
-        return;
-      }
-      setCurrentStep(1);
-    } else if (currentStep === 1) {
-      // Page 2 validation
-      if (
-        !formData.contributorName ||
-        !formData.email ||
-        !formData.phoneNumber ||
-        !formData.roleInChapter
-      ) {
-        toast({
-          title: "Field required",
-          description: "Please fill in all fields before proceeding.",
-          variant: "destructive",
-        });
-        return;
-      }
-      setCurrentStep(2);
-    } else if (currentStep === 2) {
-      // Page 3 validation
-      if (!formData.campusBoundary || !formData.campusPicture) {
-        toast({
-          title: "Files required",
-          description: "Please upload both campus boundary and picture files.",
-          variant: "destructive",
-        });
-        return;
-      }
-      // Final submission
+  const formValues = watch();
+
+  // Check if current step is valid
+  const isCurrentStepValid = isValid;
+
+  const handleNextStep = async () => {
+    // Validate current step before proceeding
+    const isStepValid = await trigger();
+
+    if (!isStepValid) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields correctly",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (currentStep < 2) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      // Submit form
       if (onSubmit) {
-        onSubmit(formData);
+        onSubmit(formValues);
       }
-      console.log("Form submitted:", formData);
+      console.log("Form submitted:", formValues);
     }
   };
 
-  const handlePrevious = () => {
+  const handlePreviousStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
-  };
-
-  // Validation functions for each step
-  const isStep0Valid = () => {
-    return (
-      formData.institution.trim() !== "" &&
-      formData.country.trim() !== "" &&
-      formData.address.trim() !== "" &&
-      formData.chapterName.trim() !== "" &&
-      formData.mappingPercentage > 0
-    );
-  };
-
-  const isStep1Valid = () => {
-    return (
-      formData.contributorName?.trim() !== "" &&
-      formData.email?.trim() !== "" &&
-      formData.phoneNumber?.trim() !== "" &&
-      formData.roleInChapter?.trim() !== ""
-    );
-  };
-
-  const isStep2Valid = () => {
-    return formData.campusBoundary !== null && formData.campusPicture !== null;
-  };
-
-  const isCurrentStepValid = () => {
-    if (currentStep === 0) return isStep0Valid();
-    if (currentStep === 1) return isStep1Valid();
-    if (currentStep === 2) return isStep2Valid();
-    return false;
   };
 
   return (
@@ -194,19 +160,11 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
     >
       <div className="w-full max-w-xl h-full flex flex-col items-center justify-start pt-3 sm:pt-3">
         {/* Header - Logo + Text - Positioned at top */}
-        <div className="flex-shrink-0 pb-0 sm:pb-0.5 flex items-center justify-center gap-2">
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
-            <Image
-              src="/cg.svg"
-              alt="CampusGuide Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
+        <div className="flex-shrink-0 pb-0 sm:pb-0.5 flex items-center gap-2">
+          <HeaderIcon size={32} />
+          <span className="text-sm sm:text-lg font-normal sm:font-normal text-gray-900">
             CampusGuide
-          </h1>
+          </span>
         </div>
 
         {/* Progress Carousel - Before form card */}
@@ -224,49 +182,76 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
             {currentStep === 0 && (
               <div className="space-y-5 sm:space-y-4">
                 {/* Institution Input */}
-                <TextField
-                  label="Institution"
-                  value={formData.institution}
-                  onChange={(e) => handleChange("institution", e.target.value)}
-                  placeholder="Enter institution name"
-                  type="text"
-                  required
+                <Controller
+                  name="institution"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Institution"
+                      {...field}
+                      placeholder="Enter institution name"
+                      type="text"
+                      required
+                    />
+                  )}
                 />
 
                 {/* Country Select */}
-                <SelectField
-                  label="Country"
-                  value={formData.country}
-                  onChange={(value) => handleChange("country", value)}
-                  options={COUNTRIES}
-                  searchable={true}
-                  placeholder="Select a country"
+                <Controller
+                  name="country"
+                  control={control}
+                  render={({ field }) => (
+                    <SelectField
+                      label="Country"
+                      value={field.value}
+                      onChange={field.onChange}
+                      options={COUNTRIES}
+                      searchable={true}
+                      placeholder="Select a country"
+                    />
+                  )}
                 />
 
                 {/* Address Input */}
-                <TextField
-                  label="Address"
-                  value={formData.address}
-                  onChange={(e) => handleChange("address", e.target.value)}
-                  placeholder="Enter campus address"
-                  type="text"
-                  required
+                <Controller
+                  name="address"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Address"
+                      {...field}
+                      placeholder="Enter campus address"
+                      type="text"
+                      required
+                    />
+                  )}
                 />
 
                 {/* Chapter Name Input */}
-                <TextField
-                  label="Chapter Name"
-                  value={formData.chapterName}
-                  onChange={(e) => handleChange("chapterName", e.target.value)}
-                  placeholder="Enter chapter name"
-                  type="text"
-                  required
+                <Controller
+                  name="chapterName"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Chapter Name"
+                      {...field}
+                      placeholder="Enter chapter name"
+                      type="text"
+                      required
+                    />
+                  )}
                 />
 
                 {/* Mapping Slider */}
-                <MappingSlider
-                  value={formData.mappingPercentage}
-                  onChange={(value) => handleChange("mappingPercentage", value)}
+                <Controller
+                  name="mappingPercentage"
+                  control={control}
+                  render={({ field }) => (
+                    <MappingSlider
+                      value={field.value}
+                      onChange={field.onChange}
+                    />
+                  )}
                 />
               </div>
             )}
@@ -275,47 +260,63 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
             {currentStep === 1 && (
               <div className="space-y-5 sm:space-y-4">
                 {/* Contributor Name Input */}
-                <TextField
-                  label="Full Name"
-                  value={formData.contributorName || ""}
-                  onChange={(e) =>
-                    handleChange("contributorName", e.target.value)
-                  }
-                  placeholder="Firstname Lastname"
-                  type="text"
-                  required
+                <Controller
+                  name="contributorName"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Full Name"
+                      {...field}
+                      placeholder="Firstname Lastname"
+                      type="text"
+                      required
+                    />
+                  )}
                 />
 
                 {/* Email Input */}
-                <TextField
-                  label="Email"
-                  value={formData.email || ""}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  placeholder="your.email@example.com"
-                  type="email"
-                  required
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Email"
+                      {...field}
+                      placeholder="your.email@example.com"
+                      type="email"
+                      required
+                    />
+                  )}
                 />
 
                 {/* Phone Number Input */}
-                <TextField
-                  label="Phone Number"
-                  value={formData.phoneNumber || ""}
-                  onChange={(e) => handleChange("phoneNumber", e.target.value)}
-                  placeholder="+234 701 234 5678"
-                  type="tel"
-                  required
+                <Controller
+                  name="phoneNumber"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Phone Number"
+                      {...field}
+                      placeholder="+234 701 234 5678"
+                      type="tel"
+                      required
+                    />
+                  )}
                 />
 
                 {/* Role in Chapter Input */}
-                <TextField
-                  label="Role in Chapter"
-                  value={formData.roleInChapter || ""}
-                  onChange={(e) =>
-                    handleChange("roleInChapter", e.target.value)
-                  }
-                  placeholder="Member"
-                  type="text"
-                  required
+                <Controller
+                  name="roleInChapter"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Role in Chapter"
+                      {...field}
+                      placeholder="Member"
+                      type="text"
+                      required
+                    />
+                  )}
                 />
               </div>
             )}
@@ -324,30 +325,42 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
             {currentStep === 2 && (
               <div className="space-y-5 sm:space-y-4">
                 {/* Campus Boundary Upload */}
-                <FileUploadField
-                  label="Upload Campus Boundary"
-                  value={formData.campusBoundary || null}
-                  onChange={(file) => handleChange("campusBoundary", file)}
-                  acceptedFormats={{
-                    "application/json": [".geojson", ".json"],
-                    "application/vnd.google-earth.kml+xml": [".kml"],
-                  }}
-                  icon={<BoundaryIcon />}
-                  dragPrompt="Drag and drop campus boundary"
-                  helpText="Upload your campus boundary layer in (GeoJSON or KML)"
+                <Controller
+                  name="campusBoundary"
+                  control={control}
+                  render={({ field }) => (
+                    <FileUploadField
+                      label="Upload Campus Boundary"
+                      value={field.value || null}
+                      onChange={field.onChange}
+                      acceptedFormats={{
+                        "application/json": [".geojson", ".json"],
+                        "application/vnd.google-earth.kml+xml": [".kml"],
+                      }}
+                      icon={<BoundaryIcon />}
+                      dragPrompt="Drag and drop campus boundary"
+                      helpText="Upload your campus boundary layer in (GeoJSON or KML)"
+                    />
+                  )}
                 />
 
                 {/* Campus Picture Upload */}
-                <FileUploadField
-                  label="Upload Campus Picture"
-                  value={formData.campusPicture || null}
-                  onChange={(file) => handleChange("campusPicture", file)}
-                  acceptedFormats={{
-                    "image/*": [".jpeg", ".jpg", ".png", ".gif", ".webp"],
-                  }}
-                  icon={<PictureIcon />}
-                  dragPrompt="Drag and drop campus picture"
-                  helpText="Add a clear picture of the entrance of your campus"
+                <Controller
+                  name="campusPicture"
+                  control={control}
+                  render={({ field }) => (
+                    <FileUploadField
+                      label="Upload Campus Picture"
+                      value={field.value || null}
+                      onChange={field.onChange}
+                      acceptedFormats={{
+                        "image/*": [".jpeg", ".jpg", ".png", ".gif", ".webp"],
+                      }}
+                      icon={<PictureIcon />}
+                      dragPrompt="Drag and drop campus picture"
+                      helpText="Add a clear picture of the entrance of your campus"
+                    />
+                  )}
                 />
               </div>
             )}
@@ -359,7 +372,7 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
           {/* Previous Button - Show from step 1 onwards */}
           {currentStep > 0 && (
             <button
-              onClick={handlePrevious}
+              onClick={handlePreviousStep}
               className="px-10 sm:px-12 py-2.5 sm:py-2 rounded-full font-light transition-all duration-300 text-sm sm:text-base"
               style={{
                 backgroundColor: "transparent",
@@ -374,19 +387,19 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
 
           {/* Next Button (Steps 0-1) / Submit Button (Step 2) */}
           <button
-            onClick={handleNext}
-            disabled={!isCurrentStepValid()}
+            onClick={handleNextStep}
+            disabled={!isCurrentStepValid}
             className="px-10 sm:px-14 py-2.5 sm:py-2 rounded-full font-light text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:hover:scale-100"
             style={{
-              backgroundColor: isCurrentStepValid() ? COLORS.primary : "#ccc",
+              backgroundColor: isCurrentStepValid ? COLORS.primary : "#ccc",
             }}
             onMouseEnter={(e) => {
-              if (isCurrentStepValid()) {
+              if (isCurrentStepValid) {
                 e.currentTarget.style.backgroundColor = COLORS.primaryLight;
               }
             }}
             onMouseLeave={(e) => {
-              if (isCurrentStepValid()) {
+              if (isCurrentStepValid) {
                 e.currentTarget.style.backgroundColor = COLORS.primary;
               }
             }}

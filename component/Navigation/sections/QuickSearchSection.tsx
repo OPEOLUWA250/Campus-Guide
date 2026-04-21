@@ -5,12 +5,11 @@ import Image from "next/image";
 import { COLORS, BORDER_RADIUS } from "@/constant/design";
 import {
   QuickSearchIcon,
-  GoLiveMapIcon,
-  ArrowRightIcon,
   LocationDotIcon,
   LocationPinIcon,
-} from "@/utils/svg-icons";
+} from "@/assets/icons";
 import CG from "@/assets/icons/CG";
+import { MapIcon } from "@/assets/icons";
 
 interface QuickSearchSectionProps {
   onExplore?: () => void;
@@ -31,7 +30,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
             >
               Quick Search
             </h2>
-            <QuickSearchIcon size={48} color="#992BF4" />
+            <QuickSearchIcon size={48} color={COLORS.primary} />
           </div>
           <h3 className="text-xl sm:text-4xl font-light text-gray-900">
             Find{" "}
@@ -78,7 +77,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                 {/* First Input - Where are you right now? */}
                 <div className="flex items-center gap-2">
                   <div className="bg-gray-100 rounded-full p-2 flex-shrink-0">
-                    <LocationDotIcon size={10} color="#992BF4" />
+                    <LocationDotIcon size={10} color={COLORS.primary} />
                   </div>
                   <input
                     type="text"
@@ -90,7 +89,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                 {/* Second Input - Where are you going to? */}
                 <div className="flex items-center gap-2">
                   <div className="bg-gray-100 rounded-full p-2 flex-shrink-0">
-                    <LocationPinIcon size={10} color="#992BF4" />
+                    <LocationPinIcon size={10} color={COLORS.primary} />
                   </div>
                   <input
                     type="text"
@@ -114,7 +113,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
               e.currentTarget.style.backgroundColor = COLORS.primary;
             }}
           >
-            <GoLiveMapIcon size={20} color="white" />
+            <MapIcon size={20} color="white" />
             Go to live map
           </button>
         </div>
@@ -154,7 +153,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                 {/* First Input - Where are you right now? */}
                 <div className="flex items-center gap-3">
                   <div className="bg-gray-100 rounded-full p-3 flex-shrink-0">
-                    <LocationDotIcon size={12} color="#992BF4" />
+                    <LocationDotIcon size={12} color={COLORS.primary} />
                   </div>
                   <input
                     type="text"
@@ -166,7 +165,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                 {/* Second Input - Where are you going to? */}
                 <div className="flex items-center gap-3">
                   <div className="bg-gray-100 rounded-full p-3 flex-shrink-0">
-                    <LocationPinIcon size={12} color="#992BF4" />
+                    <LocationPinIcon size={12} color={COLORS.primary} />
                   </div>
                   <input
                     type="text"
@@ -190,7 +189,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                   e.currentTarget.style.backgroundColor = COLORS.primary;
                 }}
               >
-                <GoLiveMapIcon size={20} color="white" />
+                <MapIcon size={20} color="white" />
                 Go to live map
               </button>
             </div>

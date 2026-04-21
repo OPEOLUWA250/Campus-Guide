@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { HeaderIcon } from "@/assets/icons";
 
 interface ContributeSuccessProps {
   userName?: string;
@@ -28,19 +29,11 @@ export const ContributeSuccess: React.FC<ContributeSuccessProps> = ({
     >
       <div className="w-full max-w-xl flex flex-col items-center justify-center gap-8">
         {/* Header - Logo + Text */}
-        <div className="flex items-center justify-center gap-2">
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
-            <Image
-              src="/cg.svg"
-              alt="CampusGuide Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
+        <div className="flex items-center gap-2">
+          <HeaderIcon size={32} />
+          <span className="text-sm sm:text-lg font-normal sm:font-normal text-gray-900">
             CampusGuide
-          </h1>
+          </span>
         </div>
 
         {/* Success Card */}

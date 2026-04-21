@@ -5,9 +5,9 @@ interface IProps extends SVGProps<SVGSVGElement> {
   color?: string;
 }
 
-export const SearchIcon = ({
+export const LoveIcon = ({
   size = 18,
-  color = "#F3E6FE",
+  color = "#FF0000",
   ...props
 }: IProps) => {
   return (
@@ -16,12 +16,13 @@ export const SearchIcon = ({
       width={size}
       height={size}
       fill="none"
-      viewBox="0 0 18 17"
+      viewBox="0 0 18 18"
       {...props}
     >
       <path
+        fill={color}
         stroke={color}
-        d="m13.67 13.67 3.08 3.08m-.889-8.419c0 4.187-3.383 7.581-7.555 7.581-4.173 0-7.556-3.394-7.556-7.58C.75 4.143 4.133.75 8.305.75c4.173 0 7.556 3.394 7.556 7.581"
+        d="M5.625 2.625C3.347 2.625 1.5 4.472 1.5 6.75c0 4.125 4.875 7.875 7.5 8.747 2.625-.872 7.5-4.622 7.5-8.747 0-2.278-1.847-4.125-4.125-4.125-1.395 0-2.629.693-3.375 1.753-.746-.957-1.98-1.753-3.375-1.753Z"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
@@ -29,5 +30,3 @@ export const SearchIcon = ({
     </svg>
   );
 };
-
-export default SearchIcon;
