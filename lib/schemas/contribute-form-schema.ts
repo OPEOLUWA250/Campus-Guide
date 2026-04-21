@@ -106,12 +106,8 @@ export const ContributeFormSchema = z.object({
     .min(1, "Role in chapter is required")
     .min(2, "Role must be at least 2 characters"),
   // Step 2
-  campusBoundary: z
-    .any()
-    .nullable(),
-  campusPicture: z
-    .any()
-    .nullable(),
+  campusBoundary: z.any().nullable(),
+  campusPicture: z.any().nullable(),
 });
 
 export type ContributeFormType = z.infer<typeof ContributeFormSchema>;
