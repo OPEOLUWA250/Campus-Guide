@@ -51,13 +51,13 @@ const MapCanvas = () => {
     <Map
       ref={mapContainer}
       id="mymap"
-      dragPan={true}
-      dragRotate={true}
+      dragPan={mapLoaded}
+      dragRotate={mapLoaded}
       mapboxAccessToken={MAPBOX_TOKEN}
       initialViewState={viewState}
       maxBounds={maxBounds}
       mapStyle={baseMap}
-      interactiveLayerIds={["mapillary", "route"]}
+      interactiveLayerIds={mapLoaded ? ["mapillary", "route"] : []}
       onLoad={() => {
         setMapLoaded(!mapLoaded);
       }}

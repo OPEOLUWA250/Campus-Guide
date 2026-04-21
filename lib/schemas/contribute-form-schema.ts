@@ -55,13 +55,13 @@ export type Step1FormData = z.infer<typeof Step1Schema>;
 // Step 2: File Uploads
 export const Step2Schema = z.object({
   campusBoundary: z
-    .instanceof(File, { message: "Campus boundary file is required" })
+    .any()
     .nullable()
     .refine((file) => file !== null, {
       message: "Campus boundary file is required",
     }),
   campusPicture: z
-    .instanceof(File, { message: "Campus picture is required" })
+    .any()
     .nullable()
     .refine((file) => file !== null, { message: "Campus picture is required" }),
 });
@@ -107,10 +107,10 @@ export const ContributeFormSchema = z.object({
     .min(2, "Role must be at least 2 characters"),
   // Step 2
   campusBoundary: z
-    .instanceof(File, { message: "Campus boundary file is required" })
+    .any()
     .nullable(),
   campusPicture: z
-    .instanceof(File, { message: "Campus picture is required" })
+    .any()
     .nullable(),
 });
 
