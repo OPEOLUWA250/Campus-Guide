@@ -61,6 +61,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
                 src="/hero-img.png"
                 alt="Campus Map"
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
                 className="object-cover object-left"
               />
             </div>

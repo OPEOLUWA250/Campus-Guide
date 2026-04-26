@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MAPBOX_TOKEN, MAPILLARY_TOKEN } from "@/utils/urls";
 import Map, { AttributionControl, Source, Layer } from "react-map-gl";
 import { MapLayerMouseEvent } from "mapbox-gl";
@@ -11,6 +11,7 @@ import OtherMenu from "./OtherMenu";
 
 const MapCanvas = () => {
   const mapContainer = useRef(null);
+  const [isReady, setIsReady] = useState(false);
   const { CUSTOM_ATTRIBUTION, Layer_CONFIG } = APP_CONFIG;
 
   const {
@@ -32,6 +33,15 @@ const MapCanvas = () => {
 
   const mapillaryTilesUrl = `https://tiles.mapillary.com/maps/vtp/mly1_computed_public/2/{z}/{x}/{y}?access_token=${MAPILLARY_TOKEN}`;
 
+  useEffect(() => {
+    // Cleanup on unmount
+    return () => {
+      if (mapLoaded) {
+        setMapLoaded(false);
+      }
+    };
+  }, [mapLoaded, setMapLoaded]);
+
   const handleMapClickEvent = (event: MapLayerMouseEvent) => {
     if (!startMarker) {
       setStartMarker({
@@ -51,15 +61,18 @@ const MapCanvas = () => {
     <Map
       ref={mapContainer}
       id="mymap"
-      dragPan={mapLoaded}
-      dragRotate={mapLoaded}
+      dragPan={mapLoaded && isReady}
+      dragRotate={mapLoaded && isReady}
       mapboxAccessToken={MAPBOX_TOKEN}
       initialViewState={viewState}
       maxBounds={maxBounds}
       mapStyle={baseMap}
-      interactiveLayerIds={mapLoaded ? ["mapillary", "route"] : []}
+      interactiveLayerIds={mapLoaded && isReady ? ["mapillary", "route"] : []}
       onLoad={() => {
-        setMapLoaded(!mapLoaded);
+        setIsReady(true);
+        if (!mapLoaded) {
+          setMapLoaded(true);
+        }
       }}
       onClick={handleMapClickEvent}
       attributionControl={false}

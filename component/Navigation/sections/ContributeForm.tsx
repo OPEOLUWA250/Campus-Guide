@@ -98,11 +98,12 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
     trigger,
   } = useForm<ContributeFormData>({
     mode: "onChange",
-    resolver: currentStep === 0
-      ? zodResolver(Step0Schema as any)
-      : currentStep === 1
-      ? zodResolver(Step1Schema as any)
-      : zodResolver(Step2Schema as any),
+    resolver:
+      currentStep === 0
+        ? zodResolver(Step0Schema as any)
+        : currentStep === 1
+          ? zodResolver(Step1Schema as any)
+          : zodResolver(Step2Schema as any),
     defaultValues: {
       institution: "",
       country: "",
@@ -385,7 +386,8 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
             </button>
           )}
 
-          {/* Next Button (Steps 0-1) / Submit Button (Step 2) */}
+          {/* Next Button (Steps 0-1) / Submit Button (Step 2)
+           */}
           <button
             onClick={handleNextStep}
             disabled={!isCurrentStepValid}

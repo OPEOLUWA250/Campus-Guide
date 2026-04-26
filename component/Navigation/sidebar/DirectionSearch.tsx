@@ -14,7 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/component/shared/ui/dropdown"
+} from "@/component/shared/ui/dropdown";
 
 const DirectionSearch = () => {
   const router = useRouter();
@@ -39,30 +39,25 @@ const DirectionSearch = () => {
 
   const bbox: Array<Array<number>> = maxBounds as Array<Array<number>>;
 
-  const bboxString = bbox
-  ? bbox[0].join(",") + "," + bbox[1].join(",")
-  : ""; // or use a default bounding box value if needed
+  const bboxString = bbox ? bbox[0].join(",") + "," + bbox[1].join(",") : ""; // or use a default bounding box value if needed
 
   const { data: startPlace, isLoading: isLoadingStartPlaces } = useGetPlace(
     startLocation,
     3,
-    bboxString
+    bboxString,
   );
   const { data: endPlace, isLoading: isLoadingEndPlaces } = useGetPlace(
     endLocation,
     4,
-    bboxString
+    bboxString,
   );
-
-
-
 
   return (
     <div>
       <div className="flex md:gap-2 gap-2">
         <RouteIcons />
         <div className="flex flex-col gap-2 w-full">
-        <div className="relative">
+          <div className="relative">
             <Input
               placeholder="Where are you right now?"
               className="w-full bg-white"
@@ -192,7 +187,7 @@ const DirectionSearch = () => {
             (error) => {
               setIsLoadingCurrentLocation(false);
               console.log(error);
-            }
+            },
           );
         }}
       >

@@ -56,7 +56,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
               src="/buildings.png"
               alt="Campus Buildings"
               fill
-              sizes="100vw"
+              sizes="(max-width: 640px) 100vw, 90vw"
               priority
               className="w-full h-full object-cover"
             />
@@ -132,7 +132,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
               src="/buildings.png"
               alt="Campus Buildings"
               fill
-              sizes="(max-width: 1024px) 90vw, 1200px"
+              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 70vw, 600px"
               priority
               className="w-full h-full object-cover"
             />

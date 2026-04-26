@@ -40,6 +40,7 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
                 src={imagePath}
                 alt={`Step ${number}`}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 400px"
                 className="object-contain rounded-[24px] lg:rounded-[44px]"
                 priority
               />
@@ -127,6 +128,7 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
                 src={imagePath}
                 alt={`Step ${number}`}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 400px"
                 className="object-contain rounded-[24px] lg:rounded-[44px]"
                 priority
               />
@@ -141,6 +143,7 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
               src={imagePath}
               alt={`Step ${number}`}
               fill
+              sizes="(max-width: 640px) 100vw, 90vw"
               className="object-contain rounded-[24px]"
               priority
             />
