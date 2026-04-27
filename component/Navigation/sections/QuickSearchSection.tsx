@@ -65,9 +65,9 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
             />
 
             {/* Search Card Overlay - Top Left */}
-            <div className="absolute top-4 left-4 right-4 max-w-xs">
+            <div className="absolute top-4 left-4 right-4 max-w-xs overflow-visible z-50">
               <div
-                className="rounded-xl p-4 shadow-lg border border-white space-y-3"
+                className="rounded-xl p-4 shadow-lg border border-white space-y-3 overflow-visible"
                 style={{
                   backgroundColor: COLORS.light.bg,
                 }}
@@ -122,9 +122,9 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
             />
 
             {/* Search Card Overlay */}
-            <div className="absolute top-6 left-6 sm:left-8 sm:right-auto sm:w-96">
+            <div className="absolute top-6 left-6 sm:left-8 sm:right-auto sm:w-96 overflow-visible z-50">
               <div
-                className="rounded-2xl p-6 shadow-lg border border-white space-y-5"
+                className="rounded-2xl p-6 shadow-lg border border-white space-y-5 overflow-visible"
                 style={{
                   backgroundColor: COLORS.light.bg,
                 }}

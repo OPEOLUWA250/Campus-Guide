@@ -86,7 +86,7 @@ const DirectionSearch = ({
               />
             )}
             {showStartPlaceSuggestions && (
-              <div className="absolute w-full mt-1 z-30">
+              <div className="absolute w-full mt-1 z-[9999] left-0 right-0">
                 {isLoadingStartPlaces ? (
                   <div className="bg-white shadow-md md:max-h-[10rem] space-y-2 overflow-auto max-h-[8rem] rounded-md py-2 px-3">
                     <RouteInfoSkeleton height={25} />
@@ -142,7 +142,7 @@ const DirectionSearch = ({
               />
             )}
             {showEndPlaceSuggestions && (
-              <div className="absolute w-full mt-1 z-30">
+              <div className="absolute w-full mt-1 z-[9999] left-0 right-0">
                 {isLoadingEndPlaces ? (
                   <div className="bg-white shadow-md md:max-h-[10rem] space-y-2 overflow-auto max-h-[8rem] rounded-md py-2 px-3">
                     <RouteInfoSkeleton height={25} />
