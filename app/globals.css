@@ -181,7 +181,13 @@ body,
   }
 
   .bg-step-badge {
-    @apply bg-[#992bf4];
+    @apply bg-[#FFDA7A];
+  }
+
+  @media (min-width: 1024px) {
+    .bg-step-badge {
+      @apply bg-[#992bf4];
+    }
   }
 
   /* Text colors */
@@ -196,7 +202,7 @@ body,
 
 /* Button hover states */
 .btn-outline-black {
-  @apply border-2 border-black text-black bg-transparent;
+  @apply border border-black text-black bg-transparent;
   transition: background-color 0.2s ease;
 }
 

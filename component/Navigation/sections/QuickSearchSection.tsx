@@ -10,6 +10,8 @@ import {
 } from "@/assets/icons";
 import CG from "@/assets/icons/CG";
 import { MapIcon } from "@/assets/icons";
+import Direction from "@/component/Navigation/sidebar/Direction";
+import { useAppContext } from "@/lib/context/AppContext";
 
 interface QuickSearchSectionProps {
   onExplore?: () => void;
@@ -18,6 +20,7 @@ interface QuickSearchSectionProps {
 export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
   onExplore,
 }) => {
+  const { startMarker, endMarker } = useAppContext();
   return (
     <section className="w-full h-screen bg-white flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 pb-16 sm:pb-24">
       <div className="w-full max-w-6xl h-full flex flex-col">
@@ -74,28 +77,9 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                   <CG width={100} height={25} />
                 </div>
 
-                {/* First Input - Where are you right now? */}
-                <div className="flex items-center gap-2">
-                  <div className="bg-gray-100 rounded-full p-2 flex-shrink-0">
-                    <LocationDotIcon size={10} color={COLORS.primary} />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Where are you right now?"
-                    className="flex-1 text-xs text-gray-900 placeholder-gray-400 bg-gray-50 rounded-full px-3 py-2 outline-none focus:ring-1 focus:ring-purple-200"
-                  />
-                </div>
-
-                {/* Second Input - Where are you going to? */}
-                <div className="flex items-center gap-2">
-                  <div className="bg-gray-100 rounded-full p-2 flex-shrink-0">
-                    <LocationPinIcon size={10} color={COLORS.primary} />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Where are you going to?"
-                    className="flex-1 text-xs text-gray-900 placeholder-gray-400 bg-gray-50 rounded-full px-3 py-2 outline-none focus:ring-1 focus:ring-purple-200"
-                  />
+                {/* Direction Component */}
+                <div className="text-sm">
+                  <Direction active={true} shouldNavigateOnClose={false} />
                 </div>
               </div>
             </div>
@@ -150,28 +134,9 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
                   <CG width={120} height={30} />
                 </div>
 
-                {/* First Input - Where are you right now? */}
-                <div className="flex items-center gap-3">
-                  <div className="bg-gray-100 rounded-full p-3 flex-shrink-0">
-                    <LocationDotIcon size={12} color={COLORS.primary} />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Where are you right now?"
-                    className="flex-1 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 rounded-3xl px-4 py-2.5 outline-none focus:ring-1 focus:ring-purple-200"
-                  />
-                </div>
-
-                {/* Second Input - Where are you going to? */}
-                <div className="flex items-center gap-3">
-                  <div className="bg-gray-100 rounded-full p-3 flex-shrink-0">
-                    <LocationPinIcon size={12} color={COLORS.primary} />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Where are you going to?"
-                    className="flex-1 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 rounded-3xl px-4 py-2.5 outline-none focus:ring-1 focus:ring-purple-200"
-                  />
+                {/* Direction Component */}
+                <div className="text-sm">
+                  <Direction active={true} shouldNavigateOnClose={false} />
                 </div>
               </div>
             </div>

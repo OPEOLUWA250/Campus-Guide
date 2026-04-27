@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/component/shared/ui/dropdown";
 
-const DirectionSearch = () => {
+const DirectionSearch = ({ shouldNavigateOnClose = true }: { shouldNavigateOnClose?: boolean }) => {
   const router = useRouter();
   const {
     startMarker,
@@ -71,7 +71,7 @@ const DirectionSearch = () => {
               <CloseToastIcon
                 className="absolute top-4 right-2 h-4 w-4 hover:text-cg-error"
                 onClick={() => {
-                  if (routeInfo) {
+                  if (shouldNavigateOnClose && routeInfo) {
                     setRouteInfo(null);
                     router.push(`${APP_DOMAIN}/map`);
                   }
@@ -127,7 +127,7 @@ const DirectionSearch = () => {
               <CloseToastIcon
                 className="absolute top-4 right-2 h-4 w-4 hover:text-cg-error"
                 onClick={() => {
-                  if (routeInfo) {
+                  if (shouldNavigateOnClose && routeInfo) {
                     setRouteInfo(null);
                     router.push(`${APP_DOMAIN}/map`);
                   }

@@ -4,15 +4,17 @@ import DirectionSearch from './DirectionSearch'
 import RouteDetails from './RouteDetails'
 
 const Direction = ({
-  active
+  active,
+  shouldNavigateOnClose = true
 }: {
   active: boolean
+  shouldNavigateOnClose?: boolean
 }) => {
 
   return (
     <div className={`${active ? "block": "hidden"}`}>
       <div className='p-4'>
-       <DirectionSearch />
+       <DirectionSearch shouldNavigateOnClose={shouldNavigateOnClose} />
       </div>
        <RouteDetails />
     </div>

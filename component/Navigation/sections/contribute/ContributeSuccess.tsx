@@ -29,12 +29,15 @@ export const ContributeSuccess: React.FC<ContributeSuccessProps> = ({
     >
       <div className="w-full max-w-xl flex flex-col items-center justify-center gap-8">
         {/* Header - Logo + Text */}
-        <div className="flex items-center gap-2">
+        <button
+          onClick={handleGoHome}
+          className="flex items-center gap-2 hover:opacity-70 transition-opacity duration-200"
+        >
           <HeaderIcon size={32} />
           <span className="text-sm sm:text-lg font-normal sm:font-normal text-gray-900">
             CampusGuide
           </span>
-        </div>
+        </button>
 
         {/* Success Card */}
         <div

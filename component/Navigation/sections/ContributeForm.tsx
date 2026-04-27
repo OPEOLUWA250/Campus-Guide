@@ -161,12 +161,15 @@ export const ContributeForm: React.FC<ContributeFormProps> = ({
     >
       <div className="w-full max-w-xl h-full flex flex-col items-center justify-start pt-3 sm:pt-3">
         {/* Header - Logo + Text - Positioned at top */}
-        <div className="flex-shrink-0 pb-0 sm:pb-0.5 flex items-center gap-2">
+        <button
+          onClick={() => (window.location.href = "/")}
+          className="flex-shrink-0 pb-0 sm:pb-0.5 flex items-center gap-2 hover:opacity-70 transition-opacity duration-200"
+        >
           <HeaderIcon size={32} />
           <span className="text-sm sm:text-lg font-normal sm:font-normal text-gray-900">
             CampusGuide
           </span>
-        </div>
+        </button>
 
         {/* Progress Carousel - Before form card */}
         <div className="w-full max-w-md px-6 sm:px-5 mt-10 sm:mt-10">
