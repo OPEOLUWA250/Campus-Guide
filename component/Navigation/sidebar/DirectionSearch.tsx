@@ -16,7 +16,11 @@ import {
   DropdownMenuTrigger,
 } from "@/component/shared/ui/dropdown";
 
-const DirectionSearch = ({ shouldNavigateOnClose = true }: { shouldNavigateOnClose?: boolean }) => {
+const DirectionSearch = ({
+  shouldNavigateOnClose = true,
+}: {
+  shouldNavigateOnClose?: boolean;
+}) => {
   const router = useRouter();
   const {
     startMarker,
