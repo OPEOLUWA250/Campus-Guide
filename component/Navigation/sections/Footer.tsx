@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = () => {
           {/* Supported by Line */}
           <div className="flex items-center justify-center gap-3">
             <span className="text-gray-900">Supported by</span>
-            <YouthMappersIcon size={60} />
+            <YouthMappersIcon size={40} />
           </div>
 
           {/* Copyright Line */}

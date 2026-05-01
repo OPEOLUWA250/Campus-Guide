@@ -27,27 +27,35 @@ const WebMap = () => {
     mapLoaded,
     routeInfo,
     endMarker,
-    startMarker
+    startMarker,
   } = useAppContext();
 
   useEffect(() => {
-    if (!routeInfo && !startMarker && !endMarker && searchParams.has("route") ) {
+    if (!routeInfo && !startMarker && !endMarker && searchParams.has("route")) {
       const route = searchParams.get("route");
 
-      if(route as string) {
-      const decodedRoute = decodeCoordinate(route as string);
-      setStartMarker({
-        latitude: decodedRoute[0][1],
-        longitude: decodedRoute[0][0],
-      });
-      setEndMarker({
-        latitude: decodedRoute[1][1],
-        longitude: decodedRoute[1][0],
-      });
+      if (route as string) {
+        const decodedRoute = decodeCoordinate(route as string);
+        setStartMarker({
+          latitude: decodedRoute[0][1],
+          longitude: decodedRoute[0][0],
+        });
+        setEndMarker({
+          latitude: decodedRoute[1][1],
+          longitude: decodedRoute[1][0],
+        });
       }
-
     }
-  }, [MAP_CONFIG, endMarker, routeInfo, searchParams, setBaseMap, setEndMarker, setStartMarker, startMarker]);
+  }, [
+    MAP_CONFIG,
+    endMarker,
+    routeInfo,
+    searchParams,
+    setBaseMap,
+    setEndMarker,
+    setStartMarker,
+    startMarker,
+  ]);
 
   return (
     <div className="h-screen w-full">
