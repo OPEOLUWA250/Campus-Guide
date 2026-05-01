@@ -27,9 +27,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-0 bg-transparent transition-all duration-300 pt-3 sm:pt-4"
+      className="fixed top-0 left-0 right-0 flex justify-center px-4 sm:px-0 bg-transparent transition-all duration-300 pt-3 sm:pt-4"
       style={{
         transform: isVisible ? "translateY(0)" : "translateY(-120px)",
+        zIndex: 99999,
       }}
     >
       <nav
