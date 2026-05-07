@@ -1,16 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { COLORS } from "@/constant/design";
 import { ContributeBg } from "@/assets/icons";
 
-interface ContributeSectionProps {
-  onContributeClick?: () => void;
-}
+interface ContributeSectionProps {}
 
-export const ContributeSection: React.FC<ContributeSectionProps> = ({
-  onContributeClick,
-}) => {
+export const ContributeSection: React.FC<ContributeSectionProps> = () => {
   return (
     <section className="w-full px-4 sm:px-6 py-12 sm:py-16">
       <div className="w-full max-w-6xl mx-auto">
@@ -28,13 +25,13 @@ export const ContributeSection: React.FC<ContributeSectionProps> = ({
             </p>
           </div>
 
-          <button
-            onClick={onContributeClick}
+          <Link
+            href="/contribute"
             className="flex items-center gap-2 px-6 sm:px-8 lg:px-6 py-3 sm:py-4 lg:py-3 rounded-full font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 bg-purple-primary hover:opacity-90 whitespace-nowrap"
           >
             <span>Contribute</span>
             <ContributeBg size={16} color="white" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

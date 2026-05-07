@@ -14,13 +14,11 @@ import {
 
 interface HeaderProps {
   onMenuClick?: () => void;
-  onContributeClick?: () => void;
   isMenuOpen?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onMenuClick,
-  onContributeClick,
   isMenuOpen = false,
 }) => {
   const isVisible = useHideOnScroll();
@@ -68,22 +66,24 @@ export const Header: React.FC<HeaderProps> = ({
           </Link>
 
           {/* Contribute Button */}
-          <button
-            onClick={onContributeClick}
+          <Link
+            href="/contribute"
             className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full font-light text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
             style={{
               backgroundColor: COLORS.primary,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = COLORS.primaryLight;
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                COLORS.primaryLight;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = COLORS.primary;
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                COLORS.primary;
             }}
           >
             <span className="text-sm">Contribute</span>
             <ContributeBg size={13} color="white" />
-          </button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button

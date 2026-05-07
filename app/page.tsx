@@ -11,17 +11,9 @@ import FAQSection from "@/component/Navigation/sections/FAQSection";
 import ContributeSection from "@/component/Navigation/sections/MobileContributeSection";
 import BackToTop from "@/component/Navigation/BackToTop";
 import AfterFooterSection from "@/component/Navigation/sections/AfterFooterSection";
-import ContributeForm, {
-  ContributeFormData,
-} from "@/component/Navigation/sections/ContributeForm";
-import ContributeSuccess from "@/component/Navigation/sections/contribute/ContributeSuccess";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showContributeForm, setShowContributeForm] = useState(false);
-  const [showSuccessPage, setShowSuccessPage] = useState(false);
-  const [submittedFormData, setSubmittedFormData] =
-    useState<ContributeFormData | null>(null);
 
   // Prevent scrolling when menu is open
   useEffect(() => {
@@ -54,35 +46,6 @@ export default function Home() {
     window.open("https://youtube.com", "_blank");
   };
 
-  const handleContributeClick = () => {
-    setShowContributeForm(true);
-  };
-
-  const handleContributeSubmit = (formData: ContributeFormData) => {
-    console.log("Contribute form submitted:", formData);
-    setSubmittedFormData(formData);
-    setShowContributeForm(false);
-    setShowSuccessPage(true);
-  };
-
-  if (showContributeForm) {
-    return (
-      <ContributeForm
-        onClose={() => setShowContributeForm(false)}
-        onSubmit={handleContributeSubmit}
-      />
-    );
-  }
-
-  if (showSuccessPage && submittedFormData) {
-    return (
-      <ContributeSuccess
-        userName={submittedFormData.contributorName || "youthmapperX"}
-        userEmail={submittedFormData.email || "youthmapperX@gmail.com"}
-      />
-    );
-  }
-
   return (
     <>
       <main className="w-full overflow-x-hidden">
@@ -91,7 +54,6 @@ export default function Home() {
           <HeroViewport
             onCtaClick={handleCtaClick}
             onMenuClick={() => setIsMenuOpen(!isMenuOpen)}
-            onContributeClick={handleContributeClick}
             isMenuOpen={isMenuOpen}
             onMenuChange={setIsMenuOpen}
           />
@@ -118,7 +80,7 @@ export default function Home() {
         </section>
 
         {/* Contribute Section */}
-        <ContributeSection onContributeClick={handleContributeClick} />
+        <ContributeSection />
 
         {/* FAQ Section */}
         <section id="FAQ">

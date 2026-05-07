@@ -8,20 +8,10 @@ import { ContributeIcon, MapIcon } from "@/assets/icons";
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  onContributeClick: () => void;
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({
-  isOpen,
-  onClose,
-  onContributeClick,
-}) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
-
-  const handleContribute = () => {
-    onContributeClick();
-    onClose();
-  };
 
   return (
     <>
@@ -38,23 +28,26 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             <span className="text-sm font-medium">Web map</span>
           </Link>
 
-          {/* Contribute Button */}
-          <button
-            onClick={handleContribute}
+          {/* Contribute Link */}
+          <Link
+            href="/contribute"
             className="flex items-center gap-2 px-4 py-3 rounded-full font-light text-white transition-all duration-300 hover:shadow-lg w-full justify-center"
             style={{
               backgroundColor: COLORS.primary,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = COLORS.primaryLight;
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                COLORS.primaryLight;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = COLORS.primary;
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                COLORS.primary;
             }}
+            onClick={onClose}
           >
             <ContributeIcon size={13} color="white" />
             <span className="text-sm">Contribute</span>
-          </button>
+          </Link>
         </div>
       </div>
     </>

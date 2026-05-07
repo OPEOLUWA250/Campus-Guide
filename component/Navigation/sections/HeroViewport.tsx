@@ -8,7 +8,6 @@ import HeroSection from "@/component/Navigation/sections/HeroSection";
 interface HeroWrapperProps {
   onCtaClick?: () => void;
   onMenuClick?: () => void;
-  onContributeClick?: () => void;
   isMenuOpen?: boolean;
   onMenuChange?: (isOpen: boolean) => void;
 }
@@ -20,18 +19,13 @@ interface HeroWrapperProps {
 export const HeroViewport: React.FC<HeroWrapperProps> = ({
   onCtaClick,
   onMenuClick,
-  onContributeClick,
   isMenuOpen = false,
   onMenuChange,
 }) => {
   return (
     <div className="relative w-full h-screen flex flex-col overflow-hidden bg-white pt-4 sm:pt-20">
       {/* Navbar - Fixed positioned, won't affect layout */}
-      <Header
-        onMenuClick={onMenuClick}
-        onContributeClick={onContributeClick}
-        isMenuOpen={isMenuOpen}
-      />
+      <Header onMenuClick={onMenuClick} isMenuOpen={isMenuOpen} />
 
       {/* Backdrop overlay when menu is open */}
       {isMenuOpen && (
@@ -43,11 +37,7 @@ export const HeroViewport: React.FC<HeroWrapperProps> = ({
 
       {/* Mobile Menu - Make sure to position it properly */}
       <div className="relative z-50">
-        <MobileMenu
-          isOpen={isMenuOpen}
-          onClose={() => onMenuChange?.(false)}
-          onContributeClick={onContributeClick || (() => {})}
-        />
+        <MobileMenu isOpen={isMenuOpen} onClose={() => onMenuChange?.(false)} />
       </div>
 
       {/* Hero Section - full height, navbar floats above */}
