@@ -15,10 +15,10 @@ export const Footer: React.FC<FooterProps> = () => {
         <div className="space-y-8">
           {/* Join Community Line */}
           <div className="flex items-center gap-6 sm:gap-10 justify-center flex-wrap">
-            <span className="text-gray-900 font-medium">Join community</span>
-            <span className="text-gray-900">hello@campusguide</span>
+            {/* <span className="text-gray-900 font-medium">Join community</span>
+            <span className="text-gray-900">hello@campusguide</span> */}
             <a
-              href="https://github.com"
+              href="https://github.com/vickystickz/Campus-Guide"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-900 hover:opacity-70 transition"

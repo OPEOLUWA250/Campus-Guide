@@ -54,7 +54,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
         {/* MOBILE LAYOUT - Image with Overlay Card */}
         <div className="flex-1 flex flex-col gap-4 sm:hidden">
           {/* Image - Mobile with Overlaid Search Card */}
-          <div className="relative h-80 w-full rounded-3xl overflow-hidden shadow-lg">
+          <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-lg">
             <Image
               src="/buildings.png"
               alt="Campus Buildings"
@@ -65,15 +65,15 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
             />
 
             {/* Search Card Overlay - Top Left */}
-            <div className="absolute top-4 left-4 right-4 max-w-xs overflow-visible z-50">
+            <div className="absolute top-5 left-5 right-5 max-w-xs overflow-visible z-50">
               <div
-                className="rounded-xl p-4 shadow-lg border border-white space-y-3 overflow-visible"
+                className="rounded-lg p-3 shadow-lg space-y-2 overflow-visible"
                 style={{
                   backgroundColor: COLORS.light.bg,
                 }}
               >
                 {/* Header with CG Logo */}
-                <div className="mb-3">
+                <div className="mb-2">
                   <CG width={100} height={25} />
                 </div>
 
@@ -122,15 +122,15 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
             />
 
             {/* Search Card Overlay */}
-            <div className="absolute top-6 left-6 sm:left-8 sm:right-auto sm:w-96 overflow-visible z-50">
+            <div className="absolute top-4 left-4 sm:left-6 sm:right-auto sm:w-80 overflow-visible z-50">
               <div
-                className="rounded-2xl p-6 shadow-lg border border-white space-y-5 overflow-visible"
+                className="rounded-xl p-4 shadow-lg space-y-3 overflow-visible"
                 style={{
                   backgroundColor: COLORS.light.bg,
                 }}
               >
                 {/* Header with CG Logo */}
-                <div className="mb-4">
+                <div className="mb-3">
                   <CG width={120} height={30} />
                 </div>
 

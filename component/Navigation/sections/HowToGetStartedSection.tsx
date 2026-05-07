@@ -16,8 +16,6 @@ const STEPS = [
     description:
       "Collaboratively map every campus feature and its attributes. Create comprehensive, detailed maps to enhance campus navigation for everyone.",
     imagePath: "/started-1.png",
-    hasButton: true,
-    buttonText: "Upload Boundary",
     imagePosition: "right" as const,
   },
   {
@@ -26,8 +24,6 @@ const STEPS = [
     description:
       "Collaboratively map every campus feature and its attributes. Create comprehensive, detailed maps to enhance campus navigation for everyone.",
     imagePath: "/started-2.png",
-    hasButton: true,
-    buttonText: "Upload Boundary",
     hasDemoButton: true,
     imagePosition: "left" as const,
   },
@@ -37,7 +33,6 @@ const STEPS = [
     description:
       "We manually verified if the area has be well mapped or requires update. Once verified, your campus boundary and details will be published on CampusGuide.",
     imagePath: "/started-3.png",
-    hasButton: false,
     imagePosition: "right" as const,
   },
 ];
@@ -77,8 +72,6 @@ export const HowToGetStartedSection: React.FC<HowToGetStartedSectionProps> = ({
               title={step.title}
               description={step.description}
               imagePath={step.imagePath}
-              hasButton={step.hasButton}
-              buttonText={step.buttonText}
               hasDemoButton={step.hasDemoButton}
               onDemoClick={onWatchDemo}
               imagePosition={step.imagePosition}

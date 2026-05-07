@@ -9,8 +9,6 @@ interface HowToGetStartedCardProps {
   title: string;
   description: string;
   imagePath: string;
-  hasButton?: boolean;
-  buttonText?: string;
   hasDemoButton?: boolean;
   onDemoClick?: () => void;
   imagePosition?: "left" | "right";
@@ -21,8 +19,6 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
   title,
   description,
   imagePath,
-  hasButton,
-  buttonText,
   hasDemoButton,
   onDemoClick,
   imagePosition = "right",
@@ -73,26 +69,6 @@ export const HowToGetStartedCard: React.FC<HowToGetStartedCardProps> = ({
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-3">
-              {hasButton && (
-                <button className="btn-outline-black inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-light text-sm">
-                  {buttonText}
-                  <svg
-                    width="17"
-                    height="14"
-                    viewBox="0 0 17 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.75 6.75H15.75M15.75 6.75L10.125 0.75M15.75 6.75L10.125 12.75"
-                      stroke="#18002C"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              )}
               {hasDemoButton && (
                 <button
                   onClick={onDemoClick}
