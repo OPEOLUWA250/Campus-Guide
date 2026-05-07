@@ -54,7 +54,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
         {/* MOBILE LAYOUT - Image with Overlay Card */}
         <div className="flex-1 flex flex-col gap-4 sm:hidden">
           {/* Image - Mobile with Overlaid Search Card */}
-          <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-lg">
+          <div className="relative h-[clamp(420px,72vh,520px)] w-full rounded-3xl overflow-hidden shadow-lg">
             <Image
               src="/buildings.png"
               alt="Campus Buildings"
@@ -111,7 +111,7 @@ export const QuickSearchSection: React.FC<QuickSearchSectionProps> = ({
           }}
         >
           {/* Buildings Image */}
-          <div className="relative h-96 sm:h-[500px] w-full rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative h-[clamp(500px,72vh,620px)] w-full rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/buildings.png"
               alt="Campus Buildings"

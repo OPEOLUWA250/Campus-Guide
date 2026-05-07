@@ -24,7 +24,6 @@ const STEPS = [
     description:
       "Collaboratively map every campus feature and its attributes. Create comprehensive, detailed maps to enhance campus navigation for everyone.",
     imagePath: "/started-2.png",
-    hasDemoButton: true,
     imagePosition: "left" as const,
   },
   {
@@ -72,7 +71,6 @@ export const HowToGetStartedSection: React.FC<HowToGetStartedSectionProps> = ({
               title={step.title}
               description={step.description}
               imagePath={step.imagePath}
-              hasDemoButton={step.hasDemoButton}
               onDemoClick={onWatchDemo}
               imagePosition={step.imagePosition}
             />
