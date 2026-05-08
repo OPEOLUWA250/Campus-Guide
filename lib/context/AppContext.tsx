@@ -150,7 +150,7 @@ interface AppProviderProps {
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const router = useRouter();
   const [baseMap, setBaseMap] = useState<string>(
-    APP_CONFIG.MAP_CONFIG.MAP_STYLE.DEFAULT
+    APP_CONFIG.MAP_CONFIG.MAP_STYLE.DEFAULT,
   );
   const [sharedUrl, setSharedUrl] = useState<string | null>(null);
   const [showMap, setShowMap] = useState<boolean>(false);
@@ -182,7 +182,7 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     zoom: 7,
   });
   const [maxBounds, setMaxBounds] = useState<LngLatBoundsLike | undefined>(
-    undefined
+    undefined,
   );
   const [startMarker, setStartMarker] = useState<{
     longitude: number;
@@ -212,7 +212,7 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   //Layers
   const [mapillaryImageId, setMapillaryImageId] = useState<string | null>(null);
   const [selectedCampus, setSelectedCampus] = useState<CampusDataType | null>(
-    null
+    null,
   );
   const [modal, setModal] = useState<{
     visible: boolean;
@@ -271,7 +271,7 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
   const generateRouteUrl = (
     domain: string | undefined,
-    encodeRouteCoordinate: string
+    encodeRouteCoordinate: string,
   ): string => {
     return `${domain}/map?route=${encodeRouteCoordinate}`;
   };
@@ -282,7 +282,7 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       return;
     }
     const filteredCampus = CAMPUS_DATA.filter((campus) =>
-      campus.title.toLowerCase().includes(search.toLowerCase())
+      campus.title.toLowerCase().includes(search.toLowerCase()),
     );
     setAvailableCampus(filteredCampus);
   };
@@ -353,7 +353,7 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       maxBounds,
       sharedUrl,
       modal,
-    ]
+    ],
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

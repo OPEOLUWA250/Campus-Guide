@@ -1,21 +1,99 @@
-import Image from "next/image";
-import APP_CONFIG from "@/constant/config";
-import LOGO from "@/public/cg-cover-logo.svg";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import HeroViewport from "@/component/Navigation/sections/HeroViewport";
+import Footer from "@/component/Navigation/Footer";
+import QuickSearchSection from "@/component/Navigation/sections/QuickSearchSection";
+import UniversitiesSection from "@/component/Navigation/sections/UniversitiesSection";
+import WhyCampusGuideSection from "@/component/Navigation/sections/WhyCampusGuideSection";
+import HowToGetStartedSection from "@/component/Navigation/sections/HowToGetStartedSection";
+import FAQSection from "@/component/Navigation/sections/FAQSection";
+import ContributeSection from "@/component/Navigation/sections/MobileContributeSection";
+import BackToTop from "@/component/Navigation/BackToTop";
+import AfterFooterSection from "@/component/Navigation/sections/AfterFooterSection";
 
 export default function Home() {
-  const { projectStatus, percentage } = APP_CONFIG
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [isMenuOpen]);
+
+  const handleCtaClick = () => {
+    // Navigate to live map
+    window.location.href = "/map";
+  };
+
+  const handleWatchDemo = () => {
+    // Open demo video modal or navigate
+    window.open("https://youtube.com", "_blank");
+  };
 
   return (
-    <main className="bg-blue-500 h-full w-full">
-      <div className="bg-progress-cover-image flex flex-col lg:gap-8 md:gap-6 gap-2 items-center justify-center h-full w-full bg-cover">
-        <div className="lg:w-[40rem] lg:h-[20rem] md:w-[30rem] md:h-[20rem] w-[20rem] h-[14rem]">
-          <Image src={LOGO} alt="Campus Guide Logo" priority={true} className="object-fit h-full w-full" />
-        </div>
-        <div className="text-blue-300 lg:text-2xl md:text-lg text-base lg:py-4 lg:px-6 py-2 px-4 bg-purple-50 rounded-lg ">
-           <span>Project Status : {projectStatus} ({percentage}%)</span>
-        </div>
-      </div>
-    </main>
+    <>
+      <main className="w-full overflow-x-hidden">
+        {/* Hero Section with Navbar - 100vh */}
+        <section id="hero">
+          <HeroViewport
+            onCtaClick={handleCtaClick}
+            onMenuClick={() => setIsMenuOpen(!isMenuOpen)}
+            isMenuOpen={isMenuOpen}
+            onMenuChange={setIsMenuOpen}
+          />
+        </section>
+
+        {/* Quick Search Section */}
+        <section id="quick-search">
+          <QuickSearchSection onExplore={handleCtaClick} />
+        </section>
+
+        {/* Universities Section */}
+        <section id="universities">
+          <UniversitiesSection />
+        </section>
+
+        {/* Why CampusGuide Section */}
+        <section id="why-campusguide">
+          <WhyCampusGuideSection />
+        </section>
+
+        {/* How to Get Started Section */}
+        <section id="get-started">
+          <HowToGetStartedSection onWatchDemo={handleWatchDemo} />
+        </section>
+
+        {/* Contribute Section */}
+        <ContributeSection />
+
+        {/* FAQ Section */}
+        <section id="FAQ">
+          <FAQSection />
+        </section>
+      </main>
+
+      <Footer />
+
+      <AfterFooterSection />
+
+      {/* Back to Top Button */}
+      <BackToTop />
+    </>
   );
 }

@@ -37,12 +37,11 @@ const StepCard = ({
   distance,
   driving_side,
 }: StepType) => {
-  const {setSelectedStep} = useAppContext();
-  // Get the icon for the maneuver
+  const { setSelectedStep } = useAppContext();
   const getIcon = (
     type: string,
     modifier: string | undefined,
-    driving_side: string
+    driving_side: string,
   ) => {
     switch (type) {
       case "turn":
@@ -106,10 +105,11 @@ const StepCard = ({
       location: [maneuver.location[0], maneuver.location[1]],
       instruction: maneuver.instruction,
     });
-  }
+  };
   return (
-    <li className="bg-white bg-cg-white h-fit cursor-pointer"
-      onClick={()=>handleStepClick(maneuver)}
+    <li
+      className="bg-white bg-cg-white h-fit cursor-pointer"
+      onClick={() => handleStepClick(maneuver)}
     >
       <div className="p-4 flex items-center justify-between">
         <div className="flex gap-3">
@@ -117,13 +117,11 @@ const StepCard = ({
             {getIcon(maneuver.type, maneuver.modifier, driving_side)}
           </div>
           <div className="">
-            <h3 className="text-p2 font-bold font-work-sans text-cg-blue-500 mb-1">
-              {name}
-            </h3>
+            <h3 className="text-p2 font-bold text-cg-blue-500 mb-1">{name}</h3>
             <p className="text-xs text-cg-blue-400 w-full">
               {maneuver.instruction}
             </p>
-            <p className="text-xs text-blue-400 font-work-sans font-semibold w-full">
+            <p className="text-xs text-blue-400 font-semibold w-full">
               {Arrived ? "Arrived" : `in ${getFormattedDistance(distance)}`}
             </p>
           </div>
@@ -133,7 +131,7 @@ const StepCard = ({
       {!Arrived && (
         <div className="py-2 flex gap-1 px-4">
           <Timer className="h-4 w-4 text-blue-100" />
-          <p className="text-xs text-blue-100 font-work-sans mt-[0.04rem] w-full">
+          <p className="text-xs text-blue-100 mt-[0.04rem] w-full">
             {getFormattedEstimatedTime(duration)}
           </p>
         </div>

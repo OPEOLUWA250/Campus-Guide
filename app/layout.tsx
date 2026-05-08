@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { work_sans, sora } from "@/app/font";
+import { sora } from "@/app/font";
 import { Providers } from "@/lib/context/Providers";
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -17,17 +17,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={sora.variable}>
       <head>
         <link
           href="https://unpkg.com/mapillary-js@4.1.2/dist/mapillary.css"
           rel="stylesheet"
         />
       </head>
-      <body className={`${work_sans.variable} ${sora.variable}`}>
+      <body className="w-screen">
         <Providers>
           <Suspense>
-            <div className="h-screen min-w-screen">{children} </div>
+            <div className="w-screen">{children}</div>
           </Suspense>
         </Providers>
       </body>

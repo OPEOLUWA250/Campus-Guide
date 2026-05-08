@@ -64,7 +64,7 @@ const CampusInfo = ({
       <div className="w-11 h-11 rounded-full flex items-center justify-center bg-purple-50 ">
         <UniversityIcon />
       </div>
-      <div className="h-full font-work-sans">
+      <div className="h-full">
         <h3 className="text-blue-300 md:text-base text-sm  group-hover:text-blue-700">{title}</h3>
         <p className="text-blue-75 text-xs  group-hover:text-purple-100">
           {address}

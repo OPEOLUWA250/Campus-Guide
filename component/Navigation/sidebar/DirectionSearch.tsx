@@ -14,9 +14,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/component/shared/ui/dropdown"
+} from "@/component/shared/ui/dropdown";
 
-const DirectionSearch = () => {
+const DirectionSearch = ({
+  shouldNavigateOnClose = true,
+}: {
+  shouldNavigateOnClose?: boolean;
+}) => {
   const router = useRouter();
   const {
     startMarker,
@@ -39,30 +43,25 @@ const DirectionSearch = () => {
 
   const bbox: Array<Array<number>> = maxBounds as Array<Array<number>>;
 
-  const bboxString = bbox
-  ? bbox[0].join(",") + "," + bbox[1].join(",")
-  : ""; // or use a default bounding box value if needed
+  const bboxString = bbox ? bbox[0].join(",") + "," + bbox[1].join(",") : ""; // or use a default bounding box value if needed
 
   const { data: startPlace, isLoading: isLoadingStartPlaces } = useGetPlace(
     startLocation,
     3,
-    bboxString
+    bboxString,
   );
   const { data: endPlace, isLoading: isLoadingEndPlaces } = useGetPlace(
     endLocation,
     4,
-    bboxString
+    bboxString,
   );
-
-
-
 
   return (
     <div>
       <div className="flex md:gap-2 gap-2">
         <RouteIcons />
         <div className="flex flex-col gap-2 w-full">
-        <div className="relative">
+          <div className="relative">
             <Input
               placeholder="Where are you right now?"
               className="w-full bg-white"
@@ -76,7 +75,7 @@ const DirectionSearch = () => {
               <CloseToastIcon
                 className="absolute top-4 right-2 h-4 w-4 hover:text-cg-error"
                 onClick={() => {
-                  if (routeInfo) {
+                  if (shouldNavigateOnClose && routeInfo) {
                     setRouteInfo(null);
                     router.push(`${APP_DOMAIN}/map`);
                   }
@@ -87,7 +86,7 @@ const DirectionSearch = () => {
               />
             )}
             {showStartPlaceSuggestions && (
-              <div className="absolute w-full mt-1 z-30">
+              <div className="absolute w-full mt-1 z-[9999] left-0 right-0">
                 {isLoadingStartPlaces ? (
                   <div className="bg-white shadow-md md:max-h-[10rem] space-y-2 overflow-auto max-h-[8rem] rounded-md py-2 px-3">
                     <RouteInfoSkeleton height={25} />
@@ -132,7 +131,7 @@ const DirectionSearch = () => {
               <CloseToastIcon
                 className="absolute top-4 right-2 h-4 w-4 hover:text-cg-error"
                 onClick={() => {
-                  if (routeInfo) {
+                  if (shouldNavigateOnClose && routeInfo) {
                     setRouteInfo(null);
                     router.push(`${APP_DOMAIN}/map`);
                   }
@@ -143,7 +142,7 @@ const DirectionSearch = () => {
               />
             )}
             {showEndPlaceSuggestions && (
-              <div className="absolute w-full mt-1 z-30">
+              <div className="absolute w-full mt-1 z-[9999] left-0 right-0">
                 {isLoadingEndPlaces ? (
                   <div className="bg-white shadow-md md:max-h-[10rem] space-y-2 overflow-auto max-h-[8rem] rounded-md py-2 px-3">
                     <RouteInfoSkeleton height={25} />
@@ -192,7 +191,7 @@ const DirectionSearch = () => {
             (error) => {
               setIsLoadingCurrentLocation(false);
               console.log(error);
-            }
+            },
           );
         }}
       >

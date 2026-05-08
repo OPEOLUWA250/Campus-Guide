@@ -7,6 +7,7 @@ import { Theme } from "@radix-ui/themes";
 import { MapProvider } from "react-map-gl";
 import { ReactNode } from "react";
 import ModalProvider from "@/component/shared/modal-ui/ModalProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -18,12 +19,16 @@ export const Providers: React.FC<AppProviderProps> = ({ children }) => {
   return (
     <AppProvider>
       <QueryClientProvider client={queryClient}>
-        <Theme>
-          <MapProvider>{children}</MapProvider>
-          <Toaster />
-          <FeedbackToaster />
-        </Theme>
-        <ModalProvider />
+        <TooltipProvider>
+          <Theme>
+            <MapProvider>
+              {children}
+              <Toaster />
+              <FeedbackToaster />
+            </MapProvider>
+            <ModalProvider />
+          </Theme>
+        </TooltipProvider>
       </QueryClientProvider>
     </AppProvider>
   );

@@ -4,13 +4,13 @@ const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./component/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        "work-sans": ['var(--font-work-sans)'],
-        "sora": ['var(--font-sora)'],
+        sora: ["var(--font-sora)"],
       },
       screens: {
         xs: "475px",
@@ -20,31 +20,124 @@ const config: Config = {
         xl: "1280px",
         "2xl": "1536px",
       },
+      animation: {
+        "pulse-slow": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      width: {
+        "3/10": "30%",
+        "7/10": "70%",
+      },
       fontSize: {
-          // Primary typography
-          "p-4xl": ["var(--font-size-primary-h1)", "var(--line-height-primary-h1)"],
-          "p-3xl": ["var(--font-size-primary-h2)", "var(--line-height-primary-h2)"],
-          "p-2xl": ["var(--font-size-primary-h3)", "var(--line-height-primary-h3)"],
-          "p-xl": ["var(--font-size-primary-h4)", "var(--line-height-primary-h4)"],
-          "p-lg": ["var(--font-size-primary-h5)", "var(--line-height-primary-h5)"],
-          "p-md": ["var(--font-size-primary-p1)", "var(--line-height-primary-p1)"],
-          "p-base": ["var(--font-size-primary-p2)", "var(--line-height-primary-p2)"],
-          "p-xs": ["var(--font-size-primary-p3)", "var(--line-height-primary-p3)"],
-          "p-sm": ["var(--font-size-primary-p4)", "var(--line-height-primary-p4)"], 
-          
-          // Secondary typography
-          "s-4xl": ["var(--font-size-secondary-h1)", "var(--line-height-secondary-h1)"],
-          "s-3xl": ["var(--font-size-secondary-h2)", "var(--line-height-secondary-h2)"],
-          "s-2xl": ["var(--font-size-secondary-h3)", "var(--line-height-secondary-h3)"],
-          "s-xl": ["var(--font-size-secondary-h4)", "var(--line-height-secondary-h4)"],
-          "s-lg": ["var(--font-size-secondary-h5)", "var(--line-height-secondary-h5)"],
-          "s-md": ["var(--font-size-secondary-p1)", "var(--line-height-secondary-p1)"],
-          "s-base": ["var(--font-size-secondary-p2)", "var(--line-height-secondary-p2)"],
-          "s-xs": ["var(--font-size-secondary-p3)", "var(--line-height-secondary-p3)"],
-          "s-sm": ["var(--font-size-secondary-p4)", "var(--line-height-secondary-p4)"],
+        // Primary typography
+        "p-4xl": [
+          "var(--font-size-primary-h1)",
+          "var(--line-height-primary-h1)",
+        ],
+        "p-3xl": [
+          "var(--font-size-primary-h2)",
+          "var(--line-height-primary-h2)",
+        ],
+        "p-2xl": [
+          "var(--font-size-primary-h3)",
+          "var(--line-height-primary-h3)",
+        ],
+        "p-xl": [
+          "var(--font-size-primary-h4)",
+          "var(--line-height-primary-h4)",
+        ],
+        "p-lg": [
+          "var(--font-size-primary-h5)",
+          "var(--line-height-primary-h5)",
+        ],
+        "p-md": [
+          "var(--font-size-primary-p1)",
+          "var(--line-height-primary-p1)",
+        ],
+        "p-base": [
+          "var(--font-size-primary-p2)",
+          "var(--line-height-primary-p2)",
+        ],
+        "p-xs": [
+          "var(--font-size-primary-p3)",
+          "var(--line-height-primary-p3)",
+        ],
+        "p-sm": [
+          "var(--font-size-primary-p4)",
+          "var(--line-height-primary-p4)",
+        ],
 
-        },
+        // Secondary typography
+        "s-4xl": [
+          "var(--font-size-secondary-h1)",
+          "var(--line-height-secondary-h1)",
+        ],
+        "s-3xl": [
+          "var(--font-size-secondary-h2)",
+          "var(--line-height-secondary-h2)",
+        ],
+        "s-2xl": [
+          "var(--font-size-secondary-h3)",
+          "var(--line-height-secondary-h3)",
+        ],
+        "s-xl": [
+          "var(--font-size-secondary-h4)",
+          "var(--line-height-secondary-h4)",
+        ],
+        "s-lg": [
+          "var(--font-size-secondary-h5)",
+          "var(--line-height-secondary-h5)",
+        ],
+        "s-md": [
+          "var(--font-size-secondary-p1)",
+          "var(--line-height-secondary-p1)",
+        ],
+        "s-base": [
+          "var(--font-size-secondary-p2)",
+          "var(--line-height-secondary-p2)",
+        ],
+        "s-xs": [
+          "var(--font-size-secondary-p3)",
+          "var(--line-height-secondary-p3)",
+        ],
+        "s-sm": [
+          "var(--font-size-secondary-p4)",
+          "var(--line-height-secondary-p4)",
+        ],
+      },
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
         blue: {
           50: "var(--cg-blue-50)",
           75: "var(--cg-blue-75)",
@@ -73,25 +166,30 @@ const config: Config = {
           500: "var(--cg-yellow-500)",
         },
         cg: {
-          error: "var(--cg-error)", 
+          error: "var(--cg-error)",
           success: "var(--cg-success)",
           warning: "var(--cg-warning)",
           info: "var(--cg-info)",
           white: "var(--cg-white)",
-          whitedark: "var(--cg-white-dark)"
+          whitedark: "var(--cg-white-dark)",
         },
       },
       backgroundImage: {
-        'progress-cover-image': 'url("/bg-cover.svg")',
+        "progress-cover-image": 'url("/bg-cover.svg")',
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-          icon: "0px 0px 16px 0px #18002C1A",
-          btn: "0px 0px 8px 0px #3F2B501A",
-          toast: "0px 0px 16px 0px #18002C1A",
-          tooltip: "0px 0px 16px 0px #18002C1A",
-          modal: "0px 0px 24px 0px #18002C29",
-          menu: "0px 0px 32px 0px #18002C1A"
-      }
+        icon: "0px 0px 16px 0px #18002C1A",
+        btn: "0px 0px 8px 0px #3F2B501A",
+        toast: "0px 0px 16px 0px #18002C1A",
+        tooltip: "0px 0px 16px 0px #18002C1A",
+        modal: "0px 0px 24px 0px #18002C29",
+        menu: "0px 0px 32px 0px #18002C1A",
+      },
     },
   },
   plugins: [],

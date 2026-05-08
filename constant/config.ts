@@ -81,11 +81,11 @@ type APP_CONFIG_TYPE = {
   };
 
   SHARE_ROUTE_CONFIG: Array<{
-      id: "mail" | "x" | "whatsapp";
-      href: string;
-      label: string;
-      icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-    }>;
+    id: "mail" | "x" | "whatsapp";
+    href: string;
+    label: string;
+    icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  }>;
 };
 
 const APP_CONFIG: APP_CONFIG_TYPE = {
@@ -168,7 +168,7 @@ const APP_CONFIG: APP_CONFIG_TYPE = {
       layout: {
         visibility: "visible", // the layer will always show by default when the map loads
       },
-      source: ""
+      source: "",
     },
     WalkLineStyle: {
       id: "route-walk",
@@ -180,7 +180,7 @@ const APP_CONFIG: APP_CONFIG_TYPE = {
       layout: {
         visibility: "visible", // the layer will always show by default when the map loads
       },
-      source: ""
+      source: "",
     },
     CircleStyle: {
       id: "route-circle-walk",
@@ -194,7 +194,7 @@ const APP_CONFIG: APP_CONFIG_TYPE = {
       layout: {
         visibility: "visible", // the layer will always show by default when the map loads
       },
-      source: ""
+      source: "",
     },
     BoundaryStyle: {
       FillLayer: {
@@ -204,7 +204,7 @@ const APP_CONFIG: APP_CONFIG_TYPE = {
           "fill-color": "#F3E6FE",
           "fill-opacity": 0.3,
         },
-        source: ""
+        source: "",
       },
       LineLayer: {
         id: "FUTA-line",
@@ -213,7 +213,7 @@ const APP_CONFIG: APP_CONFIG_TYPE = {
           "line-color": "#510094",
           "line-width": 2,
         },
-        source: ""
+        source: "",
       },
     },
     MapillaryStyle: {
@@ -276,7 +276,7 @@ const APP_CONFIG: APP_CONFIG_TYPE = {
     },
     {
       id: "mail",
-      href:"mailto:someone@example.com?subject=Check%20this%20out&body=Here%20is%20the%20link%20you%20requested:%20",
+      href: "mailto:someone@example.com?subject=Check%20this%20out&body=Here%20is%20the%20link%20you%20requested:%20",
       label: "Mail",
       icon: MailIcon,
     },

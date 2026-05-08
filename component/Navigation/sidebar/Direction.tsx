@@ -1,22 +1,23 @@
-import { Input } from '@/component/shared/ui/input'
-import React from 'react'
-import DirectionSearch from './DirectionSearch'
-import RouteDetails from './RouteDetails'
+import { Input } from "@/component/shared/ui/input";
+import React from "react";
+import DirectionSearch from "./DirectionSearch";
+import RouteDetails from "./RouteDetails";
 
 const Direction = ({
-  active
+  active,
+  shouldNavigateOnClose = true,
 }: {
-  active: boolean
+  active: boolean;
+  shouldNavigateOnClose?: boolean;
 }) => {
-
   return (
-    <div className={`${active ? "block": "hidden"}`}>
-      <div className='p-4'>
-       <DirectionSearch />
+    <div className={`${active ? "block" : "hidden"}`}>
+      <div className="p-4">
+        <DirectionSearch shouldNavigateOnClose={shouldNavigateOnClose} />
       </div>
-       <RouteDetails />
+      <RouteDetails />
     </div>
-  )
-}
+  );
+};
 
-export default Direction
+export default Direction;

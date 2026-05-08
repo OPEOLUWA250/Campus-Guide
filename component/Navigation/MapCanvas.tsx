@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MAPBOX_TOKEN, MAPILLARY_TOKEN } from "@/utils/urls";
 import Map, { AttributionControl, Source, Layer } from "react-map-gl";
 import { MapLayerMouseEvent } from "mapbox-gl";
@@ -11,6 +11,7 @@ import OtherMenu from "./OtherMenu";
 
 const MapCanvas = () => {
   const mapContainer = useRef(null);
+  const [isReady, setIsReady] = useState(false);
   const { CUSTOM_ATTRIBUTION, Layer_CONFIG } = APP_CONFIG;
 
   const {
@@ -27,31 +28,26 @@ const MapCanvas = () => {
     routeProfile,
     maxBounds,
     modal,
-    setModal
+    setModal,
   } = useAppContext();
 
   const mapillaryTilesUrl = `https://tiles.mapillary.com/maps/vtp/mly1_computed_public/2/{z}/{x}/{y}?access_token=${MAPILLARY_TOKEN}`;
 
-  const handleMapClickEvent = (event: MapLayerMouseEvent) => {
-    // const { features } = event;
-    // if (features && features.length > 0) {
-    //   // Query the Mapillary layer features at the clicked point
-    //   const mapillaryFeatures = features.filter(
-    //     (feature) => feature.layer.id === "mapillary"
-    //   );
+  useEffect(() => {
+    // Cleanup on unmount
+    return () => {
+      if (mapLoaded) {
+        setMapLoaded(false);
+      }
+    };
+  }, [mapLoaded, setMapLoaded]);
 
-    //   if (mapillaryFeatures.length) {
-    //     const imageId = mapillaryFeatures[0]?.properties?.image_id;
-    //     console.log(mapillaryFeatures);
-    //     setMapillaryImageId(imageId);
-    //   }
-    //   return;
-    // }
-    if (!startMarker){
+  const handleMapClickEvent = (event: MapLayerMouseEvent) => {
+    if (!startMarker) {
       setStartMarker({
         longitude: event.lngLat.lng,
         latitude: event.lngLat.lat,
-      })
+      });
       return;
     }
     if (endMarker) return;
@@ -65,15 +61,18 @@ const MapCanvas = () => {
     <Map
       ref={mapContainer}
       id="mymap"
-      dragPan={true}
-      dragRotate={true}
+      dragPan={mapLoaded && isReady}
+      dragRotate={mapLoaded && isReady}
       mapboxAccessToken={MAPBOX_TOKEN}
       initialViewState={viewState}
       maxBounds={maxBounds}
       mapStyle={baseMap}
-      interactiveLayerIds={["mapillary", "route"]}
+      interactiveLayerIds={mapLoaded && isReady ? ["mapillary", "route"] : []}
       onLoad={() => {
-        setMapLoaded(!mapLoaded);
+        setIsReady(true);
+        if (!mapLoaded) {
+          setMapLoaded(true);
+        }
       }}
       onClick={handleMapClickEvent}
       attributionControl={false}

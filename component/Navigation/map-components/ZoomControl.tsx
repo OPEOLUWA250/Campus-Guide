@@ -5,13 +5,9 @@ import TooltipWrapper from "@/component/shared/ui/wrapper/TooltipWrapper";
 import APP_CONFIG from "@/constant/config";
 
 const ZoomControl = () => {
-  // Get map instance
   const { current: mymap } = useMap();
-  // Get tooltip config
   const { TOOLTIP_CONFIG } = APP_CONFIG;
 
-
-  // Function to handle map zoom
   const handleMapZoom = (type: string) => {
     if (!mymap) return;
     switch (type) {

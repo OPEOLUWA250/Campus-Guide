@@ -17,7 +17,7 @@ const TooltipWrapper = ({children, info, align = "start"}: TooltipWrapperProps) 
       <Tooltip>
         <TooltipTrigger>{children}</TooltipTrigger>
         <TooltipContent updatePositionStrategy="always" side="left" align={align}>
-          <p className="md:text-p-xs text-p-xs font-work-sans md:px-2 md:py-1">{info}</p>
+          <p className="md:text-p-xs text-p-xs md:px-2 md:py-1">{info}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
