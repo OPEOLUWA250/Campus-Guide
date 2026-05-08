@@ -61,6 +61,7 @@
   --cg-white: #efeef3;
   --cg-white-dark: #f4f6f8;
 
+  /* Primary typography (Work Sans) */
   --font-size-primary-h1: 8rem;
   --font-size-primary-h2: 5.62rem;
   --font-size-primary-h3: 4rem;
@@ -81,6 +82,7 @@
   --line-height-primary-p3: 0.88rem;
   --line-height-primary-p4: 0.58em;
 
+  /* Secondary typography (Sora) */
   --font-size-secondary-h1: 5.9375rem;
   --font-size-secondary-h2: 6.33rem;
   --font-size-secondary-h3: 3.81rem;
@@ -100,8 +102,6 @@
   --line-height-secondary-p2: 1.5625em;
   --line-height-secondary-p3: 1.575em;
   --line-height-secondary-p4: 1.68rem;
-
-  --font-sora: "Sora", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -132,7 +132,7 @@
 html,
 body,
 #__next {
-  font-family: var(--font-sora);
+  font-family: var(--font-work-sans);
   font-size: 16px;
   width: 100%;
   padding: 0;
@@ -145,6 +145,15 @@ body,
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Font utilities */
+  .font-primary {
+    font-family: var(--font-work-sans);
+  }
+
+  .font-secondary {
+    font-family: var(--font-sora);
   }
 
   /* Background images */
@@ -253,10 +262,6 @@ body,
 /* ---break---  */
 
 @layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-  }
   :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -328,9 +333,6 @@ body,
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+    @apply bg-background text-foreground font-sora;
   }
 }

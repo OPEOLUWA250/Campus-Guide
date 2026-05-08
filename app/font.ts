@@ -1,6 +1,13 @@
-import { Sora } from "next/font/google";
+import { Sora, Work_Sans } from "next/font/google";
 
-// Primary font - SORA
+// Primary font - Work Sans
+export const work_sans = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-work-sans",
+  display: "swap",
+});
+
+// Secondary font - Sora
 export const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",

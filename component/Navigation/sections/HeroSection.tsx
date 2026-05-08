@@ -23,7 +23,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center px-6 sm:px-8 lg:px-12 py-12 sm:py-8 lg:py-12">
           {/* Left Content */}
           <div className="space-y-4 sm:space-y-5 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left pb-6 sm:pb-8 lg:pb-0">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white font-sora">
               Campus navigation
               <br className="sm:hidden" /> made{" "}
               <span className="text-white">easy!</span>

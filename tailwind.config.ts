@@ -10,7 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sora: ["var(--font-sora)"],
+        "work-sans": ["var(--font-work-sans)", "sans-serif"],
+        sora: ["var(--font-sora)", "sans-serif"],
       },
       screens: {
         xs: "475px",
@@ -183,6 +184,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
+        drop: "0px 4px 32px 0px #131F181A",
         icon: "0px 0px 16px 0px #18002C1A",
         btn: "0px 0px 8px 0px #3F2B501A",
         toast: "0px 0px 16px 0px #18002C1A",
