@@ -107,7 +107,9 @@ export const UniversitiesSection: React.FC<UniversitiesSectionProps> = ({
                   key={idx}
                   className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-light transition hover:shadow-md bg-white flex-shrink-0"
                 >
-                  <LocationIcon size={20} color={COLORS.primary} />
+                  <LocationIcon
+                    style={{ fill: COLORS.primary, width: 20, height: 20 }}
+                  />
                   <span>{uni.name}</span>
                 </div>
               ))}
