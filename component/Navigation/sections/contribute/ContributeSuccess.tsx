@@ -8,11 +8,13 @@ import { HeaderIcon } from "@/assets/icons";
 interface ContributeSuccessProps {
   userName?: string;
   userEmail?: string;
+  submissionId?: string;
 }
 
 export const ContributeSuccess: React.FC<ContributeSuccessProps> = ({
   userName = "youthmapperX",
   userEmail = "youthmapperX@gmail.com",
+  submissionId = "",
 }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -78,6 +80,16 @@ export const ContributeSuccess: React.FC<ContributeSuccessProps> = ({
             <span className="font-semibold text-gray-900">{userEmail}</span> on
             your upload status.
           </p>
+
+          {/* Submission ID */}
+          {submissionId && (
+            <div className="w-full bg-white rounded-lg p-3 text-center border border-gray-200">
+              <p className="text-xs text-gray-500 mb-1">Submission Reference</p>
+              <p className="text-sm font-mono font-semibold text-purple-600 break-all">
+                {submissionId}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Go Home Button */}
