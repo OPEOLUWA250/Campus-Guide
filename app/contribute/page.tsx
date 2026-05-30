@@ -11,7 +11,6 @@ export default function ContributePage() {
   const [showSuccessPage, setShowSuccessPage] = useState(false);
   const [submittedFormData, setSubmittedFormData] =
     useState<ContributeFormData | null>(null);
-  const [submissionId, setSubmissionId] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
 
@@ -32,9 +31,6 @@ export default function ContributePage() {
 
       // Set the data for success page
       setSubmittedFormData(formData);
-      setSubmissionId(
-        response.id || response.submissionId || `SUB-${Date.now()}`,
-      );
       setShowSuccessPage(true);
     } catch (err: any) {
       const errorMessage =
@@ -58,7 +54,6 @@ export default function ContributePage() {
       <ContributeSuccess
         userName={submittedFormData.contributorName || "youthmapperX"}
         userEmail={submittedFormData.email || "youthmapperX@gmail.com"}
-        submissionId={submissionId}
       />
     );
   }

@@ -191,11 +191,7 @@ export const createSubmissionMock = async (data: {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
-  // Generate mock submission ID
-  const mockId = `SUB-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-
   return {
-    id: mockId,
     institution: data.institution,
     country: data.country,
     address: data.address,
